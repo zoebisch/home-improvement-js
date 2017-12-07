@@ -3,6 +3,7 @@ class CreateMaterials < ActiveRecord::Migration[5.1]
     create_table :materials do |t|
       t.string :name
       t.integer :quantity_on_hand
+      t.string :unit
       t.float :value_per_unit
 
       t.timestamps
