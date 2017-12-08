@@ -5,15 +5,17 @@ class Project < ActiveRecord::Base
   has_many :materials, through: :items
 
   def add_material(material_id, quantity)
-    material = Material.find_by(id: material_id)
     binding.pry
+    material = Material.find(material_id)
     if material.quantity_on_hand < quantity
       #TODO: error if not enough materials on hand
     else
-      binding.pry
-      self.materials << material
+      item = Item.new(material_id: material_id)
+      item.quantity = quantity
+      self.items << item
       self.save
+      binding.pry
     end
-    material
+    item
   end
 end
