@@ -22,4 +22,17 @@ class Project < ActiveRecord::Base
     self.save
     item
   end
+
+  def set_status(status)
+    self.status = status
+    self.save
+  end
+
+  def list_materials
+    materials_list = self.items.collect{|item| Material.find(item.material_id)}
+    self.items.each do |item|
+    end
+    binding.pry
+  end
+
 end
