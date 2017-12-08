@@ -9,17 +9,19 @@ class Project < ActiveRecord::Base
     if material.quantity_on_hand < quantity
       #TODO: error if not enough materials on hand
     else
-      if self.items.find(material_id)
+      if self.items.find_by(material_id: material_id)
         binding.pry
-        item = self.items.find(material_id)
+        item = self.items.find_by(material_id: material_id)
         item.quantity += quantity
+        item.save
       else
+        binding.pry
         item = Item.new(material_id: material_id)
         item.quantity = quantity
+        self.items << item
       end
-      self.items << item
-      self.save
     end
+    self.save
     item
   end
 end
