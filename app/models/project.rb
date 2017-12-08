@@ -1,4 +1,4 @@
-class Project < ActiveRecord::Base
+class Project < ApplicationRecord
   belongs_to :house
   has_many :areas, through: :house
   has_many :items

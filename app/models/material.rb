@@ -1,3 +1,3 @@
-class Material < ActiveRecord::Base
+class Material < ApplicationRecord
   has_many :items
 end
