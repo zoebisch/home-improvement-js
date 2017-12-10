@@ -3,7 +3,8 @@ class Project < ApplicationRecord
   has_many :areas, through: :house
   has_many :items
   has_many :materials, through: :items
-
+  validates :name, presence: true
+  validates :name, uniqueness: true
   def add_material(material_id, quantity)
     material = Material.find(material_id)
     if material.quantity_on_hand < quantity
