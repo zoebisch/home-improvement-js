@@ -23,3 +23,4 @@ house.save
 material.save
 material2.save
 material3.save
+user = User.create!(email: "bob_jones@home.com", password: "simple_stuff_123")
