@@ -33,10 +33,16 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#Use Pry for general debugging
 gem 'pry'
+#Rspec for novel model testing
 gem 'rspec-rails'
+#Let devise handle authentications
 gem 'devise'
+#Authentication through Facebook
 gem 'omniauth-facebook'
+#handle ENV with dotenv
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
