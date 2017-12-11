@@ -5,11 +5,9 @@ RSpec.describe Project, :type => :model do
     @house = House.create(:address => "123 Easy Street, 48213")
     @area = Area.create(:name => "Kitchen")
     @project = Project.create(:name => "Fix Stove")
-    @material = Material.create(:name => "Liquid Ants")
-    @item = Item.create(:material_id => @material.id)
+    @material = Material.create(:name => "Liquid Ants", :quantity_on_hand => "1")
     @house.areas << @area
     @house.projects << @project
-    @project.items << @item
   end
 
   it 'belongs to house' do
@@ -20,11 +18,12 @@ RSpec.describe Project, :type => :model do
     expect(@project.areas.first).to eq(@house.areas.first)
   end
 
-  it 'has many item' do
+  it 'has many items' do
     expect(@project.items.first).to eq(@item)
   end
 
   it 'has many materials through items' do
+    @project.items.create(material_id: @material.id)
     expect(@project.materials).to include(@material)
   end
 
