@@ -1,12 +1,9 @@
 <h2><%= @project.name %></h2>
 <h3><%= @project.house.address%></h3>
 
-<% if @project.items.empty? %>
-  <p><%= link_to "Add Material", new_item_path %></p>
-<% else %>
-  <ul>
-    <% @project.items.each do |item| %>
-      <li><%= link_to item.name, item_path(item) %></li>
-    <% end %>
-  </ul>
-<% end %>
+<ul>
+  <% @project.items.each do |item| %>
+    <li><%= link_to item.name, item_path(item) %></li>
+  <% end %>
+</ul>
+<p><%= link_to "Add Material", new_item_path %></p>
