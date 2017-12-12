@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20171211182808) do
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
-    t.string "status"
+    t.string "status", default: "Not yet started"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "house_id"
