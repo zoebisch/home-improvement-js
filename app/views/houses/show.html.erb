@@ -1,3 +1,4 @@
+<h2>Now Viewing: <%= @house.address %></h2>
 <ul>
   <% @house.projects.each do |project| %>
     <li><%= link_to project.name, project_path(project) %></li>
