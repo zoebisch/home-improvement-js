@@ -1,11 +1,11 @@
 <h2>Current Homes Needing Repair</h2>
 <% if !!current_user %>
-<ul>
-  <% House.all.each do |house| %>
-    <li><%= link_to house.address, house_path(house) %></li>
-  <% end %>
-</ul>
-<p><%= link_to "Add A New Address", new_house_path %></p>
+  <ul>
+    <% House.all.each do |house| %>
+      <li><%= link_to house.address, house_path(house) %></li>
+    <% end %>
+  </ul>
+  <p><%= link_to "Add A New Address", new_house_path %></p>
 <% else %>
  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
  <%= link_to "Sign in", user_session_path %>
