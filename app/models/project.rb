@@ -5,6 +5,15 @@ class Project < ApplicationRecord
   has_many :materials, through: :items
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  def items_attributes=(items_attributes)
+     items_attributes.values.each do |item|
+       binding.pry
+       self.items.build(item)
+     end
+
+  end
+
   def add_material(material_id, quantity)
     material = Material.find(material_id)
     if material.quantity_on_hand < quantity
