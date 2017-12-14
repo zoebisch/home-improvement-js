@@ -6,15 +6,18 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new()
+    @project.house = House.find(params[:id].to_i)
     @materials = Material.all
     Material.all.size.times {@project.items.build}
-    #binding.pry
   end
 
   def create
-    binding.pry
-    @project = Project.new(params[:id])
+    @project = Project.create(name: params[:project][:name])
+    @house = House.find(params[:project][:house_id])
+    @project.house = @house
+    @project.save
     @project.update(project_params)
+    binding.pry
     redirect_to project_path(@project)
   end
 

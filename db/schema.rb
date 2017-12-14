@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20171211182808) do
 
   create_table "materials", force: :cascade do |t|
     t.string "name"
-    t.integer "quantity_on_hand"
+    t.integer "quantity_on_hand", default: 0
     t.string "unit"
     t.float "value_per_unit"
     t.datetime "created_at", null: false
