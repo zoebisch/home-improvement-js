@@ -1,0 +1,7 @@
+<h2>Now Editing: <%= @house.address %></h2>
+
+<%= form_for @house do |f| %>
+  <%= f.label :address%>
+  <%= f.text_field :address, value: @house.address %>
+  <%= f.submit "Update Address" %>
+<% end %>
