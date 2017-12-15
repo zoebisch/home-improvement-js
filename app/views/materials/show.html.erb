@@ -3,8 +3,8 @@
 
 <ul>
   <% Project.all.each do |project| %>
-  <% if project.materials.exists?(@material.name) %>
-      <li>Needed for: <%= link_to @project.name, project_path(@project) %></li>
+  <% if project.materials.exists?(@material.id) %>
+      <li>Needed for: <%= link_to project.name, project_path(project) %></li>
       <% end %>
   <% end %>
 </ul>

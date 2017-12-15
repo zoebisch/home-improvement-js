@@ -3,7 +3,7 @@
 
 <ul>
   <% @project.items.each do |item| %>
-    <li><%= link_to item.name, item_path(item) %></li>
+    <li><%= material_lookup(item) %></li>
   <% end %>
 </ul>
 <p><%= link_to "Add Material", new_item_path %></p>
