@@ -24,6 +24,10 @@ class ProjectsController < ApplicationController
     redirect_to project_path(@project)
   end
 
+  def update
+    binding.pry
+  end
+
 private
 
   def project_params

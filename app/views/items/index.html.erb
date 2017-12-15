@@ -1,0 +1,17 @@
+<h2> Items List for <%= @project.name %></h2>
+
+<p>
+    <%= form_for @project do |f| %>
+      <%= f.collection_check_boxes(:item_ids, @project.items, :id, :check_material) do |item|%>
+      <% binding.pry %>
+        <%= Material.find(item.object.material_id).name %>
+
+        <%= item.label :class => "checkstyle"%>
+        <%= item.check_box %>
+        <br></br>
+      <% end %>
+
+    <%= f.submit "Update List"%>
+
+    <% end %>
+  </p>

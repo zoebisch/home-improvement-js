@@ -25,3 +25,37 @@
   <% end %>
   <%= submit_tag "Add Project"%>
   <br></br>
+
+
+  <h2>Add A New Project</h2>
+
+  <%= form_for @project do |f| %>
+    <p>
+      <%= f.label "Name" %>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.fields_for :items, @project.items do |items_builder| %>
+            Material:<%= items_builder.text_field :material %>
+            Quantity:<%= items_builder.number_field :quantity %>
+            <br></br>
+      <% end %>
+    </p>
+
+
+      <%= f.collection_check_boxes(:item_ids, Material.all, :id, :item_ids) do |material|%>
+      <% binding.pry %>
+        <%= material.object.name %>
+        <%= f.fields_for :items, @project.items do |items_builder| %>
+              Quantity:<%= items_builder.number_field :quantity %>
+              <br></br>
+        <% end %>
+        <%= material.label :class => "checkstyle"%>
+        <%= material.check_box %>
+        <br></br>
+      <% end %>
+
+    <%= f.hidden_field :house_id, :value => @project.house.id %>
+    <%= f.submit %>
+  <% end %>
