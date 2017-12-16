@@ -8,9 +8,9 @@
 
   <p>
     <%= f.fields_for :items, @project.items do |items_builder| %>
-          Material:<%= items_builder.text_field :material %>
-          Quantity:<%= items_builder.number_field :quantity %>
-          <br></br>
+      Material:<%= items_builder.text_field :material %>
+      Quantity:<%= items_builder.number_field :quantity %>
+      <br></br>
     <% end %>
   </p>
 

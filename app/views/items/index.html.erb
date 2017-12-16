@@ -1,13 +1,20 @@
-<h2> Items List for <%= @project.name %></h2>
+<h2> Items List for: <%= @project.name %></h2>
 
 <p>
-    <%= form_for @project do |f| %>
-      <%= f.collection_check_boxes(:item_ids, @project.items, :id, :check_material) do |item|%>
-      <% binding.pry %>
-        <%= Material.find(item.object.material_id).name %>
+    <%= form_for @project.materials do |f| %>
+      <%= f.fields_for :items, Material.all.each do |material|%>
+      <%binding.pry%>
+        <%= material.name %>
+        <br></br>
+      <% end %>
 
-        <%= item.label :class => "checkstyle"%>
-        <%= item.check_box %>
+      <%= f.collection_check_boxes(:name, Material.all, :id, :name) do |material|%>
+      <% binding.pry %>
+        <% if @project.materials.exists?(material.object.id) %>
+          <% else %>
+        <%= material.label :class => "checkstyle"%>
+        <%= material.check_box %>
+        <% end %>
         <br></br>
       <% end %>
 
