@@ -1,25 +1,23 @@
 <h2> Items List for: <%= @project.name %></h2>
 
 <p>
-    <%binding.pry%>@
-    <%= form_for @project do |f| %>
-      <%= f.fields_for :items, Material.all.each do |item|%>
-      <%binding.pry%>
-        <%= material.object.name %>
+  <%= form_for @project do |f| %>
+    <p>
+      <%= f.label "Name" %>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.fields_for :items, @project.items do |items_list| %>
+        <%= find_material_name(items_list) %>
+        <%= items_list.hidden_field :material_id %>
+        : quantity:<%= items_list.number_field :quantity %>
         <br></br>
       <% end %>
 
-      <%= f.collection_check_boxes(:name, Material.all, :id, :name) do |material|%>
-      <% binding.pry %>
-        <% if @project.materials.exists?(material.object.id) %>
-          <% else %>
-        <%= material.label :class => "checkstyle"%>
-        <%= material.check_box %>
-        <% end %>
-        <br></br>
-      <% end %>
+    </p>
 
-    <%= f.submit "Update List"%>
-
-    <% end %>
+    <%= f.hidden_field :house_id, :value => @project.house.id %>
+    <%= f.submit %>
+  <% end %>
   </p>

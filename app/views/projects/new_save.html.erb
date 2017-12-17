@@ -43,6 +43,11 @@
       <% end %>
     </p>
 
+        <%= f.fields_for :items, @project.items.build do |new_item| %>
+              Material:<%= new_item.text_field :material %>
+              Quantity:<%= new_item.number_field :quantity %>
+              <br></br>
+        <% end %>
 
       <%= f.collection_check_boxes(:item_ids, Material.all, :id, :item_ids) do |material|%>
       <% binding.pry %>

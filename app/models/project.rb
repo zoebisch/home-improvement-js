@@ -28,10 +28,12 @@ class Project < ApplicationRecord
       end
       item.save
       self.save
-      binding.pry
       item
     else
       binding.pry
+      if self.materials.exists?(material_id)
+        self.items.find_by(material_id: material_id).destroy
+      end
     end
   end
 

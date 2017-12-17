@@ -9,18 +9,21 @@ class ProjectsController < ApplicationController
     @project.house = House.find(params[:id].to_i)
     @materials = Material.all
     @project.build_items_list
-    #Material.all.size.times {@project.items.build}
   end
 
   def create
     @project = Project.new()
-    @project.update(project_params)
     binding.pry
+    @project.update(project_params)
     redirect_to project_path(@project)
   end
 
   def update
     binding.pry
+    @project = Project.find(params[:id])
+    binding.pry
+    @project.update(project_params)
+    redirect_to project_path(@project)
   end
 
 private
