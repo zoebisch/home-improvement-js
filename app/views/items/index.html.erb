@@ -23,7 +23,6 @@
     <%= f.submit %>
   <% end %>
 
-  <% if @project.items.empty? %>
     <p><%= link_to "Remove Project?" , project_path(@project), method: :delete %></p>
-  <% end %>
+
   </p>
