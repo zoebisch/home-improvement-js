@@ -20,19 +20,20 @@ class Project < ApplicationRecord
       else
         if self.items.exists?(material_id)
           item = self.items.find(material_id)
-          item.quantity += quantity
         else
           item = self.items.new(material_id: material_id)
-          item.quantity = quantity.to_i
         end
       end
+      item.quantity = quantity.to_i
       item.save
       self.save
       item
     else
-      binding.pry
       if self.materials.exists?(material_id)
-        self.items.find_by(material_id: material_id).destroy
+        item = self.items.find_by(material_id: material_id)
+        binding.pry
+        self.items.delete(item)
+        self.save
       end
     end
   end
