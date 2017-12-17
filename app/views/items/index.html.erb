@@ -1,10 +1,11 @@
 <h2> Items List for: <%= @project.name %></h2>
 
 <p>
-    <%= form_for @project.materials do |f| %>
-      <%= f.fields_for :items, Material.all.each do |material|%>
+    <%binding.pry%>@
+    <%= form_for @project do |f| %>
+      <%= f.fields_for :items, Material.all.each do |item|%>
       <%binding.pry%>
-        <%= material.name %>
+        <%= material.object.name %>
         <br></br>
       <% end %>
 

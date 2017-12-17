@@ -8,31 +8,30 @@ class Project < ApplicationRecord
 
   def items_attributes=(items_attributes)
      items_attributes.values.each do |item|
-       self.add_item(item[:material], item[:quantity])
+       self.add_item(item[:material_id], item[:quantity])
      end
   end
 
-  def add_item(material_name, quantity)
-    material = Material.find_or_create_by(name: material_name.downcase)
-    if material.id == nil
-      material.destroy
-      binding.pry
-    else
+  def add_item(material_id, quantity)
+    if quantity.to_i > 0
+      material = Material.find(material_id)
       if material.quantity_on_hand < quantity.to_i
         #TODO: error if not enough materials on hand
       else
-      #  binding.pry
-        if self.items.exists?(material.id)
-          item = self.items.find(material.id)
+        if self.items.exists?(material_id)
+          item = self.items.find(material_id)
           item.quantity += quantity
         else
-          item = self.items.new(material_id: material.id)
+          item = self.items.new(material_id: material_id)
           item.quantity = quantity.to_i
         end
       end
       item.save
       self.save
+      binding.pry
       item
+    else
+      binding.pry
     end
   end
 
@@ -46,6 +45,12 @@ class Project < ApplicationRecord
     self.items.each do |item|
     end
     binding.pry
+  end
+
+  def build_items_list
+    Material.all.each do |material|
+      self.items.new(material_id: material.id)
+    end
   end
 
 end
