@@ -14,4 +14,13 @@ module ItemsHelper
     Material.find(items_builder.object.material_id).name
   end
 
+  def item_quantity(item_id)
+    if item_id != nil
+      item = Item.find(item_id)
+      item.quantity == nil ? 0 : item.quantity
+    else
+      0
+    end
+  end
+
 end

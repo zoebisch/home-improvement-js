@@ -7,7 +7,7 @@
       <%= f.fields_for :items, @project.items do |items_list| %>
         <%= find_material_name(items_list) %>
         <%= items_list.hidden_field :material_id %>
-        : quantity:<%= items_list.number_field :quantity, min: 0, placeholder: material_qoh(items_list.object.material_id)%>
+        : quantity:<%= items_list.number_field :quantity, min: 0, placeholder: item_quantity(items_list.object.id)%>
         <br></br>
       <% end %>
 

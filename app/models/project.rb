@@ -22,23 +22,21 @@ class Project < ApplicationRecord
 
   def add_item(material_id, quantity)
     if quantity.to_i > 0 || quantity.to_i == ""
-      puts "#{material_id} #{quantity}"
-      binding.pry
-
       material = Material.find(material_id)
       if material.quantity_on_hand < quantity.to_i
         #TODO: error if not enough materials on hand
+        binding.pry
       else
-        if self.items.exists?(material_id)
-          item = self.items.find(material_id)
+        if self.items.exists?(material_id: material_id)
+          item = self.items.find_by(material_id: material_id)
         else
-          item = self.items.new(material_id: material_id)
+          item = self.items.create(material_id: material_id)
         end
+        item.quantity = quantity.to_i
+        item.save
+        self.save
+        item
       end
-      item.quantity = quantity.to_i
-      item.save
-      self.save
-      item
     else
       if self.materials.exists?(material_id)
         item = self.items.find_by(material_id: material_id)
@@ -62,7 +60,10 @@ class Project < ApplicationRecord
 
   def build_items_list
     Material.all.each do |material|
-      self.items.new(material_id: material.id)
+      if !self.materials.exists?(material.id) #Only build item if not already included
+        binding.pry
+        self.items.new(material_id: material.id)
+      end
     end
   end
 
