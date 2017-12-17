@@ -26,10 +26,17 @@ class ProjectsController < ApplicationController
     redirect_to project_path(@project)
   end
 
+  def destroy
+    @project = Project.find(params[:id])
+    @house = @project.house
+    @project.delete
+    @project.save
+    redirect_to house_path(@house)
+  end
+
 private
 
   def project_params
-    #params.require(:project).permit(:name, :status)
     params.require(:project).permit(:name, :status, :house_id, items_attributes: [:material_id, :quantity])
   end
 

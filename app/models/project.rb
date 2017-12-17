@@ -31,7 +31,6 @@ class Project < ApplicationRecord
     else
       if self.materials.exists?(material_id)
         item = self.items.find_by(material_id: material_id)
-        binding.pry
         self.items.delete(item)
         self.save
       end

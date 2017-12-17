@@ -1,0 +1,11 @@
+<h2>Add A New Material</h2>
+
+<%= form_for @material do |f| %>
+  <p>
+    <%= f.label "Name" %>
+    <%= f.text_field :name %><br></br>
+    <%= f.label "Quantity On Hand" %>
+    <%= f.number_field :quantity_on_hand, min: 0 %>
+  </p>
+  <%= f.submit "Create Material"%>
+<% end %>
