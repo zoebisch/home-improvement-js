@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new()
+    binding.pry
     @project.update(project_params)
     redirect_to project_path(@project)
   end
@@ -50,7 +51,7 @@ class ProjectsController < ApplicationController
 private
 
   def project_params
-    params.require(:project).permit(:name, :status, :house_id, items_attributes: [:material_id, :quantity], materials: [:name, :quantity_on_hand])
+    params.require(:project).permit(:name, :status, :house_id, materials: [:name, :quantity_on_hand], items_attributes: [:material_id, :quantity])
   end
 
 end
