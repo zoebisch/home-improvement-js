@@ -10,7 +10,13 @@ class HousesController < ApplicationController
   def create
     @house = House.new(params[:id])
     @house.update(house_params)
-    redirect_to house_path(@house)
+    if @house.errors.messages != {}
+      binding.pry
+      flash[:error] = "The address: #{params[:house][:address]} #{@house.errors.messages[:address][0]}"
+      redirect_to new_house_path
+    else
+      redirect_to house_path(@house)
+    end
   end
 
   def edit
@@ -20,6 +26,10 @@ class HousesController < ApplicationController
   def update
     @house = House.find(params[:id])
     @house.update(house_params)
+    if @house.errors
+      flash_error = "#{params[:house][:address] }" + @house.errors.messages[:address][0]
+      redirect_to new_house_path
+    end
     redirect_to house_path(@house)
   end
 
