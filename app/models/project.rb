@@ -61,7 +61,6 @@ class Project < ApplicationRecord
   def build_items_list
     Material.all.each do |material|
       if !self.materials.exists?(material.id) #Only build item if not already included
-        binding.pry
         self.items.new(material_id: material.id)
       end
     end

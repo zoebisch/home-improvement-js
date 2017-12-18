@@ -3,6 +3,11 @@
   <ul>
     <% House.all.each do |house| %>
       <li><%= link_to house.address, house_path(house) %></li>
+      <ol>
+        <% house.projects.each do |project| %>
+          <li><%= link_to project.name, project_path(house, project) %></li>
+        <% end %>
+      </ol>
     <% end %>
   </ul>
   <p><%= link_to "Add A New Address", new_house_path %></p>

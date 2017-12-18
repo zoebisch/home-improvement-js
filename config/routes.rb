@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :materials
   resources :projects
   resources :areas
-  resources :houses
+  resources :houses do
+    resources :projects, only: [:index, :new]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
