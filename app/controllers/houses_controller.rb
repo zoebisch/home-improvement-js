@@ -10,12 +10,14 @@ class HousesController < ApplicationController
   def create
     @house = House.new(params[:id])
     @house.update(house_params)
-    if @house.errors.messages != {}
-      flash[:error] = "The address #{params[:house][:address]} #{@house.errors.messages[:address][0]}"
-      redirect_to new_house_path
-    else
-      redirect_to house_path(@house)
-    end
+  errors_handler(new_house_path)
+    # if @house.errors.messages != {}
+    #   flash[:error] = "The address #{params[:house][:address]} #{@house.errors.messages[:address][0]}"
+    #   redirect_to new_house_path
+    # else
+    #   redirect_to house_path(@house)
+    # end
+
   end
 
   def edit
@@ -25,11 +27,15 @@ class HousesController < ApplicationController
   def update
     @house = House.find(params[:id])
     @house.update(house_params)
-    if @house.errors
-      flash_error = "#{params[:house][:address] }" + @house.errors.messages[:address][0]
-      redirect_to new_house_path
-    end
-    redirect_to house_path(@house)
+    errors_handler(edit_house_path)
+    # if @house.errors.messages != {}
+    #   binding.pry
+    #   flash_error = "#{params[:house][:address] }" + @house.errors.messages[:address][0]
+    #   redirect_to edit_house_path
+    # else
+    #   redirect_to house_path(@house)
+    # end
+
   end
 
   def destroy
@@ -43,6 +49,15 @@ private
 
 def house_params
   params.require(:house).permit(:address)
+end
+
+def errors_handler(from_path)
+  if @house.errors.messages != {}
+    flash[:error] = "The address #{params[:house][:address] } " + @house.errors.messages[:address][0]
+    redirect_to from_path
+  else
+    redirect_to house_path(@house)
+  end
 end
 
 end

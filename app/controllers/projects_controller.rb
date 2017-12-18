@@ -28,6 +28,10 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new()
     @project.update(project_params)
+    if @project.errors
+      flash_error = "#{params[:project][:name] }" + @project.errors.messages[:name][0]
+      redirect_to new_house_path
+    end
     redirect_to project_path(@project)
   end
 
