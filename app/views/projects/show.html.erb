@@ -6,4 +6,5 @@
     <li><%= material_lookup(item) %></li>
   <% end %>
 </ul>
-<p><%= link_to "Update Items List", items_path(:id => @project.id) %></p>
+<% binding.pry%>
+<p><%= link_to "Update Items List", project_items_path(@project) %></p>

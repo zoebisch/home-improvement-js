@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
 
   def index
-    binding.pry
     if params[:house_id]
       @house = House.find(params[:house_id])
       @projects = house.projects
@@ -21,21 +20,19 @@ class ProjectsController < ApplicationController
     else
       @project.house = House.find(params[:id].to_i)
     end
+
     @materials = Material.all
     @project.build_items_list
   end
 
   def create
     @project = Project.new()
-    binding.pry
     @project.update(project_params)
     redirect_to project_path(@project)
   end
 
   def update
-    #binding.pry
     @project = Project.find(params[:id])
-  #  binding.pry
     @project.update(project_params)
     redirect_to project_path(@project)
   end
