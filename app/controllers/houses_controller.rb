@@ -11,8 +11,7 @@ class HousesController < ApplicationController
     @house = House.new(params[:id])
     @house.update(house_params)
     if @house.errors.messages != {}
-      binding.pry
-      flash[:error] = "The address: #{params[:house][:address]} #{@house.errors.messages[:address][0]}"
+      flash[:error] = "The address #{params[:house][:address]} #{@house.errors.messages[:address][0]}"
       redirect_to new_house_path
     else
       redirect_to house_path(@house)
