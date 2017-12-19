@@ -14,10 +14,13 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    binding.pry
     @project = Project.new()
     if params[:house_id]
       @project.house = House.find(params[:house_id])
     else
+      binding.pry
+      #TODO this may not be necessary since we are only accessing new project through house?
       @project.house = House.find(params[:id].to_i)
     end
 
@@ -26,19 +29,16 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    binding.pry
     @project = Project.new()
     @project.update(project_params)
-    if @project.errors
-      flash_error = "#{params[:project][:name] }" + @project.errors.messages[:name][0]
-      redirect_to new_house_path
-    end
-    redirect_to project_path(@project)
+    project_errors_handler(new_house_project_path(@project.house))
   end
 
   def update
     @project = Project.find(params[:id])
     @project.update(project_params)
-    redirect_to project_path(@project)
+    project_errors_handler(project_path(@project))
   end
 
   def destroy
@@ -53,6 +53,15 @@ private
 
   def project_params
     params.require(:project).permit(:name, :status, :house_id, materials: [:name, :quantity_on_hand], items_attributes: [:material_id, :quantity])
+  end
+
+  def project_errors_handler(from_path)
+    if @project.errors.messages != {}
+      flash[:error] = "The project #{params[:project][:name] } " + @project.errors.messages[:name][0]
+      redirect_to from_path
+    else
+      redirect_to project_path(@project)
+    end
   end
 
 end
