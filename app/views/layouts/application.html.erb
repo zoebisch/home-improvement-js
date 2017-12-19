@@ -11,11 +11,18 @@
     <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
     <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
     <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+
+    <% if !!current_user %>
+      <p>Currently Logged in as: <%= current_user.email %><p>
+    <% end %>
+
     <%= yield %>
+
     <% if !!current_user %>
       <%= link_to "Materials On Hand", materials_path %>
-      <%= link_to("Home", houses_path) %>
+      <%= link_to("Address List", houses_path) %>
       <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
     <% end %>
+
   </body>
 </html>

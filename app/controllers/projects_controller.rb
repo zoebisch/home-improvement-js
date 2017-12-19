@@ -14,14 +14,13 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    binding.pry
     @project = Project.new()
     if params[:house_id]
       @project.house = House.find(params[:house_id])
     else
-      binding.pry
-      #TODO this may not be necessary since we are only accessing new project through house?
-      @project.house = House.find(params[:id].to_i)
+      #TODO Currently there is no access through clickable means therefore redirect
+      #@project.house = House.find(params[:id].to_i) would need to modify new.html.erb to include assiging a house
+      redirect_to houses_path
     end
 
     @materials = Material.all
@@ -29,10 +28,13 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    binding.pry
     @project = Project.new()
     @project.update(project_params)
     project_errors_handler(new_house_project_path(@project.house))
+  end
+
+  def edit
+    @project = Project.find(params[:id])
   end
 
   def update
@@ -57,7 +59,7 @@ private
 
   def project_errors_handler(from_path)
     if @project.errors.messages != {}
-      flash[:error] = "The project #{params[:project][:name] } " + @project.errors.messages[:name][0]
+      flash[:error] = "The project name #{params[:project][:name] } " + @project.errors.messages[:name][0]
       redirect_to from_path
     else
       redirect_to project_path(@project)

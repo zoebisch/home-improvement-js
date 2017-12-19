@@ -1,0 +1,7 @@
+<h2>Now Editing: <%= @project.name %></h2>
+
+<%= form_for @project do |f| %>
+  <%= f.label :name%>
+  <%= f.text_field :name, value: @project.name %>
+  <%= f.submit "Update Project" %>
+<% end %>

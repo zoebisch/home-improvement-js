@@ -23,7 +23,7 @@ class Project < ApplicationRecord
 
   def add_item(material_id, quantity)
     quantity = quantity.to_i
-    
+
     if quantity > 0
       material = Material.find(material_id)
 
@@ -32,14 +32,17 @@ class Project < ApplicationRecord
       else
         item = self.items.new(material_id: material_id)
       end
+
       item.quantity = quantity
       item.save
     else
+
       if self.materials.exists?(material_id)
         item = self.items.find_by(material_id: material_id)
         self.items.delete(item)
       end
     end
+
     self.save
   end
 
