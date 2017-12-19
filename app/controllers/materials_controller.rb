@@ -1,5 +1,10 @@
 class MaterialsController < ApplicationController
 
+  def index
+    @material = Material.new()
+    @materials = Material.all
+  end
+
   def show
     @material = Material.find(params[:id])
   end
@@ -9,6 +14,7 @@ class MaterialsController < ApplicationController
   end
 
   def create
+    binding.pry
     @material = Material.new()
     @material.update(material_params)
     material_errors_handler(new_material_path)
@@ -19,6 +25,7 @@ class MaterialsController < ApplicationController
   end
 
   def update
+    binding.pry
     @material = Material.find(params[:id])
     @material.update(material_params)
     material_errors_handler(edit_material_path)
@@ -29,6 +36,10 @@ class MaterialsController < ApplicationController
     @material.delete
     @material.save
     redirect_to materials_path
+  end
+
+  def remove_multiple_materials
+     binding.pry
   end
 
 private
