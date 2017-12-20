@@ -10,8 +10,15 @@ module ProjectsHelper
     end
   end
 
-  def show_materials_shortage
-    binding.pry
+  def show_materials_shortage(project)
+    items_list = []
+    project.items.each do |item|
+      material = Material.find(item.material_id)
+      if material.quantity_on_hand < item.quantity
+        items_list << "#{item.quantity} #{material.name} needed, #{material.quantity_on_hand} on hand"
+      end
+    end
+    items_list
   end
 
 end
