@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  
+
   root 'houses#index'
   resources :houses do
-    resources :projects, only: [:index, :new]
+      resources :projects, only: [:index, :new]
   end
 
-  resources :areas
 
   resources :projects do
     resources :items, only: [:index]
