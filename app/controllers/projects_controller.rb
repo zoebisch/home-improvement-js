@@ -36,17 +36,28 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new()
     @project.update(project_params)
-    project_errors_handler(new_house_project_path(@project.house))
+    if @project.save
+        redirect_to new_house_project_path(@project.house)
+    else
+      render 'new'
+      #project_errors_handler(new_house_project_path(@project.house))
+    end
   end
 
   def edit
     @project = Project.find(params[:id])
+    binding.pry
   end
 
   def update
     @project = Project.find(params[:id])
     @project.update(project_params)
-    project_errors_handler(project_path(@project))
+    if @project.save
+      redirect_to project_path(@project)
+    else
+      render 'edit'
+    end
+    #project_errors_handler(project_path(@project))
   end
 
   def destroy

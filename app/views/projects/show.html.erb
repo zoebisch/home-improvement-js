@@ -1,6 +1,7 @@
 <h2>Viewing Project: <%= @project.name %></h2>
 <h3>For Address: <%= @project.house.address%></h3>
-
+<% binding.pry %>
+ <%= render 'shared/error_messages', project: @project %>
 <ul>
   <% @project.items.each do |item| %>
     <li><%= material_lookup(item) %></li>
