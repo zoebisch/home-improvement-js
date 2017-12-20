@@ -64,7 +64,9 @@ class Project < ApplicationRecord
     self.all.each do |project|
       project.items.each do |item|
         if Material.find(item.material_id).quantity_on_hand < item.quantity
-          @short_projects << project
+          if @short_projects.exclude?(project)
+            @short_projects << project
+          end
         end
       end
     end
