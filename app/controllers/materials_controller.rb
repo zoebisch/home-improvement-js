@@ -43,13 +43,16 @@ class MaterialsController < ApplicationController
 
   def destroy
     @material = Material.find(params[:id])
-    @material.delete
-    @material.save
-    redirect_to materials_path
-  end
 
-  def remove_multiple_materials
-     binding.pry
+    if @material.items.any?
+      flash[:error] = "Cannot delete material, it is still being used!"
+      redirect_to materials_path
+    else
+      @material.delete
+      @material.save
+      redirect_to materials_path
+    end
+
   end
 
 private
@@ -57,5 +60,5 @@ private
   def material_params
     params.require(:material).permit(:name, :quantity_on_hand)
   end
-  
+
 end

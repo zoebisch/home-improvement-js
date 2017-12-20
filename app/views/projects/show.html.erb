@@ -9,6 +9,8 @@
   <% end %>
 </ul>
 
-<p><%= link_to "Back To Address", house_path(@project.house) %> </p>
-<p><%= link_to "Edit Project Name", edit_project_path %></p>
-<p><%= link_to "Update Items List", project_items_path(@project) %></p>
+<p>
+   <%= link_to "Back To Address", house_path(@project.house) %> |
+   <%= link_to "Edit Project Name", edit_project_path %> |
+   <%= link_to "Update Items List", project_items_path(@project) %>
+</p>

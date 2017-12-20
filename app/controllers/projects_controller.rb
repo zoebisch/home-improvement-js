@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
     else
       #TODO Currently there is no access through clickable means therefore redirect
       #@project.house = House.find(params[:id].to_i) would need to modify new.html.erb to include assiging a house
-      redirect_to houses_path
+      redirect_to new_house_project_path(@project)
     end
 
     @materials = Material.all
@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
     if @project.errors.messages != {}
       render 'new'
     else
-      redirect_to new_house_project_path(@project.house)
+      redirect_to project_path(@project)
     end
 
   end

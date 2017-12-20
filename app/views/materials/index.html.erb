@@ -7,17 +7,3 @@
     <p><%= link_to material.name, material_path(material)%> quantity on hand: <%= material.quantity_on_hand %></p>
   <% end %>
 </ul>
-
-<%= form_for @material, method: :remove_multiple_materials do |m| %>
- <%= m.submit "remove multiple " %>
-<% end %>
-
-<p>
-  <%= form_for @material do |f| %>
-Select Materials For Removal: <%= f.collection_check_boxes :id, Material.all, :id, :name do |material| %>
-    <%= material.label :class => "checkstyle"%>
-    <%= material.check_box %>
-    <% end %>
-    <%= f.submit "Remove Selected Materials" %>
-    <% end %>
-  </p>
