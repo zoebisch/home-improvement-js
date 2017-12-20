@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- #error {
+ #error_explanation {
    color: red;
    ul {
      color: red;
