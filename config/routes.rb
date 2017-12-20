@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
+  
   root 'houses#index'
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
-  resources :items
+  resources :houses do
+    resources :projects, only: [:index, :new]
+  end
+
+  resources :areas
+
+  resources :projects do
+    resources :items, only: [:index]
+  end
 
   resources :materials do
     collection do
@@ -9,14 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :projects do
-    resources :items, only: [:index]
-  end
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
 
-  resources :areas
-
-  resources :houses do
-    resources :projects, only: [:index, :new]
-  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
