@@ -1,12 +1,16 @@
 <h2>Now Viewing: <%= @house.address %></h2>
+
+<p><%= link_to "Edit Address", edit_house_path %> | <%= link_to "New Project", new_house_project_path(@house)%></p>
+
 <% if @house.projects.empty? %>
   <p><%= link_to "Remove Address", house_path(@house), method: :delete %></p>
 <% else %>
-<ul>
-  <% @house.projects.each do |project| %>
-    <li><%= link_to project.name, project_path(project) %></li>
-  <% end %>
-</ul>
+
+  <h3>Current Projects</h3>
+  <ul>
+    <% @house.projects.each do |project| %>
+      <li><%= link_to project.name, project_path(project) %></li>
+    <% end %>
+  </ul>
+
 <% end %>
-<p><%= link_to "Edit Address", edit_house_path %></p>
-<p><%= link_to "New Project", new_house_project_path(@house)%></p>

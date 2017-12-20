@@ -1,7 +1,7 @@
-<h2>Add A New Address</h2>
+<h2>Add A New House</h2>
 
 <%= form_for @house do |f| %>
   <%= render 'shared/error_messages', object: @house %>
   <%= f.text_field :address %>
-  <%= f.submit "Create This Address" %>
+  <%= f.submit %>
 <% end %>

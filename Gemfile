@@ -43,6 +43,10 @@ gem 'devise'
 gem 'omniauth-facebook'
 #handle ENV with dotenv
 gem 'dotenv-rails'
+#add some bootstrap styling
+gem 'bootstrap-sass', "~> 3.1.1"
+#preparse with autofixer
+gem 'autoprefixer-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
