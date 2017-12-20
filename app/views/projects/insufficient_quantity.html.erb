@@ -1,12 +1,19 @@
-<h2>Projects in need of materials</h2>
 <ul>
-  <% @insufficient_quantity.each do |project| %>
-    <li>
-      <ul><%= link_to project.name, project_path(project) %>
-          <% show_materials_shortage(project).each do |item| %>
-            <li><%= item %></li>
-          <% end %>
-      </ul>
-    </li>
+  <% if @insufficient_quantity == [] %>
+    <h2>All projects have sufficient materials</h2>
+
+  <% else %>
+    <h2>Projects in need of materials</h2>
+
+    <ul>
+      <% @insufficient_quantity.each do |project| %>
+        <li><%= link_to project.name, project_path(project) %></li>
+          <ol>
+            <% show_materials_shortage(project).each do |item| %>
+              <li><%= item %></li>
+            <% end %>
+          </ol>
+       <% end %>
+    </ul>
   <% end %>
 </ul>

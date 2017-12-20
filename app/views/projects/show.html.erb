@@ -12,5 +12,6 @@
 <p>
    <%= link_to "Back To Address", house_path(@project.house) %> |
    <%= link_to "Edit Project Name", edit_project_path %> |
-   <%= link_to "Update Items List", project_items_path(@project) %>
+   <%= link_to "Update Items List", project_items_path(@project) %> |
+   <%= link_to "Remove Project",  project_path(@project), method: :delete %>
 </p>

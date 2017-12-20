@@ -3,5 +3,3 @@
   <%= form_for @project do |f| %>
     <%= render  partial: '/projects/project', :locals=>{:f => f} %>
   <% end %>
-
-  <p><%= link_to "Remove Project?" , project_path(@project), method: :delete %></p>
