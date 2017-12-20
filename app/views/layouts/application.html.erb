@@ -22,6 +22,7 @@
       <%= link_to "Materials On Hand", materials_path %>
       <%= link_to("Address List", houses_path) %>
       <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
+      <%= link_to("Projects With Insufficient Materials", insufficient_quantity_path )%>
     <% end %>
 
   </body>

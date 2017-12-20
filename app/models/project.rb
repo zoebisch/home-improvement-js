@@ -64,13 +64,10 @@ class Project < ApplicationRecord
     self.all.each do |project|
       project.items.each do |item|
         if Material.find(item.material_id).quantity_on_hand < item.quantity
-          binding.pry
           @short_projects << project
-          #TODO: error if not enough materials on hand
         end
       end
     end
-    binding.pry
     @short_projects
   end
 

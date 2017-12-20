@@ -1,12 +1,2 @@
 <h2>Add A New Material</h2>
-
-<%= form_for @material do |f| %>
-  <p>
-    <%= render 'shared/error_messages', object: @material %>
-    <%= f.label "Name" %>
-    <%= f.text_field :name %><br></br>
-    <%= f.label "Quantity On Hand" %>
-    <%= f.number_field :quantity_on_hand, min: 0, placeholder: @material.quantity_on_hand %>
-  </p>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>
