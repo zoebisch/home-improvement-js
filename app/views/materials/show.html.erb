@@ -6,5 +6,7 @@
   <% if project.materials.exists?(@material.id) %>
       <li>Needed for: <%= link_to project.name, project_path(project) %></li>
       <% end %>
-  <% end %>
+  <% end %>  
 </ul>
+
+<p><%= link_to "Edit Material", edit_material_path %></p>

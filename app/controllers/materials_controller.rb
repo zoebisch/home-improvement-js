@@ -14,10 +14,15 @@ class MaterialsController < ApplicationController
   end
 
   def create
-    binding.pry
     @material = Material.new()
     @material.update(material_params)
-    material_errors_handler(new_material_path)
+
+    if @material.errors.messages != {}
+      render 'new'
+    else
+      redirect_to material_path(@material)
+    end
+
   end
 
   def edit
@@ -25,10 +30,15 @@ class MaterialsController < ApplicationController
   end
 
   def update
-    binding.pry
     @material = Material.find(params[:id])
     @material.update(material_params)
-    material_errors_handler(edit_material_path)
+
+    if @material.errors.messages != {}
+      render 'edit'
+    else
+      redirect_to material_path(@material)
+    end
+
   end
 
   def destroy
@@ -47,14 +57,5 @@ private
   def material_params
     params.require(:material).permit(:name, :quantity_on_hand)
   end
-
-  def material_errors_handler(from_path)
-    if @material.errors.messages != {}
-      flash[:error] = "The material #{params[:material][:name] } " + @material.errors.messages[:name][0]
-      redirect_to from_path
-    else
-      redirect_to material_path(@material)
-    end
-  end
-
+  
 end

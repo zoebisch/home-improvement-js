@@ -10,11 +10,13 @@ class HousesController < ApplicationController
   def create
     @house = House.new(params[:id])
     @house.update(house_params)
+    
     if @house.errors.messages != {}
       render 'new'
     else
       redirect_to house_path(@house)
     end
+
   end
 
   def edit
@@ -24,11 +26,13 @@ class HousesController < ApplicationController
   def update
     @house = House.find(params[:id])
     @house.update(house_params)
+
     if @house.errors.messages != {}
       render 'edit'
     else
       redirect_to house_path(@house)
     end
+
   end
 
   def destroy
