@@ -10,7 +10,11 @@ class HousesController < ApplicationController
   def create
     @house = House.new(params[:id])
     @house.update(house_params)
-    house_errors_handler(new_house_path)
+    if @house.errors.messages != {}
+      render 'new'
+    else
+      redirect_to house_path(@house)
+    end
   end
 
   def edit
@@ -20,7 +24,11 @@ class HousesController < ApplicationController
   def update
     @house = House.find(params[:id])
     @house.update(house_params)
-    house_errors_handler(edit_house_path)
+    if @house.errors.messages != {}
+      render 'edit'
+    else
+      redirect_to house_path(@house)
+    end
   end
 
   def destroy
@@ -34,15 +42,6 @@ private
 
   def house_params
     params.require(:house).permit(:address)
-  end
-
-  def house_errors_handler(from_path)
-    if @house.errors.messages != {}
-      flash[:error] = "The address #{params[:house][:address] } " + @house.errors.messages[:address][0]
-      redirect_to from_path
-    else
-      redirect_to house_path(@house)
-    end
   end
 
 end
