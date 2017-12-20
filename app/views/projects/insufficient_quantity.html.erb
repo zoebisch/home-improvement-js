@@ -1,0 +1,6 @@
+<h2>Projects With Insufficient Materials</h2>
+<ul>
+<% @insufficient_quantity.each do |project| %>
+  <%= link_to project.name, project_path(project) %>
+<% end %>
+</ul>

@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20171211182808) do
 
-  create_table "areas", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "house_id"
-  end
-
   create_table "houses", force: :cascade do |t|
     t.string "address"
     t.datetime "created_at", null: false

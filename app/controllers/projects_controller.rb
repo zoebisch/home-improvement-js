@@ -1,5 +1,11 @@
 class ProjectsController < ApplicationController
 
+
+  def insufficient_quantity
+    @insufficient_quantity = Project.materials_shortage
+    binding.pry
+  end
+
   def index
     if params[:house_id]
       @house = House.find(params[:house_id])

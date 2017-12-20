@@ -9,4 +9,9 @@ module ProjectsHelper
       @project.items.new(material_id: material.id)
     end
   end
+
+  def show_materials_shortage
+    binding.pry
+  end
+
 end

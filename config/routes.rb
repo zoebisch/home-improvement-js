@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :items, only: [:index]
   end
+  get 'insufficient_quantity', to: 'projects#insufficient_quantity'
 
   resources :materials do
     collection do

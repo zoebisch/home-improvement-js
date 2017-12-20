@@ -50,15 +50,6 @@ class Project < ApplicationRecord
     self.save
   end
 
-  def list_materials
-    if material.quantity_on_hand < quantity.to_i
-      #TODO: error if not enough materials on hand
-      binding.pry
-    end
-    materials_list = self.items.collect{|item| Material.find(item.material_id)}
-    self.items.each do |item|
-    end
-  end
 
   def build_items_list
     Material.all.each do |material|
@@ -66,6 +57,21 @@ class Project < ApplicationRecord
         self.items.new(material_id: material.id)
       end
     end
+  end
+
+  def self.materials_shortage
+    @short_projects = []
+    self.all.each do |project|
+      project.items.each do |item|
+        if Material.find(item.material_id).quantity_on_hand < item.quantity
+          binding.pry
+          @short_projects << project
+          #TODO: error if not enough materials on hand
+        end
+      end
+    end
+    binding.pry
+    @short_projects
   end
 
 end
