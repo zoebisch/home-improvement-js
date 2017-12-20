@@ -1,9 +1,7 @@
 class ProjectsController < ApplicationController
 
-
   def insufficient_quantity
     @insufficient_quantity = Project.materials_shortage
-    binding.pry
   end
 
   def index
@@ -36,28 +34,29 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new()
     @project.update(project_params)
-    if @project.save
-        redirect_to new_house_project_path(@project.house)
-    else
+
+    if @project.errors.messages != {}
       render 'new'
-      #project_errors_handler(new_house_project_path(@project.house))
+    else
+      redirect_to new_house_project_path(@project.house)
     end
+
   end
 
   def edit
     @project = Project.find(params[:id])
-    binding.pry
   end
 
   def update
     @project = Project.find(params[:id])
     @project.update(project_params)
-    if @project.save
-      redirect_to project_path(@project)
-    else
+
+    if @project.errors.messages != {}
       render 'edit'
+    else
+      redirect_to project_path(@project)
     end
-    #project_errors_handler(project_path(@project))
+
   end
 
   def destroy
@@ -72,15 +71,6 @@ private
 
   def project_params
     params.require(:project).permit(:name, :status, :house_id, materials: [:name, :quantity_on_hand], items_attributes: [:material_id, :quantity])
-  end
-
-  def project_errors_handler(from_path)
-    if @project.errors.messages != {}
-      flash[:error] = "The project name #{params[:project][:name] } " + @project.errors.messages[:name][0]
-      redirect_to from_path
-    else
-      redirect_to project_path(@project)
-    end
   end
 
 end

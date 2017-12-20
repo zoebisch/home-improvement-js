@@ -1,12 +1,14 @@
 <h2>Viewing Project: <%= @project.name %></h2>
 <h3>For Address: <%= @project.house.address%></h3>
-<% binding.pry %>
- <%= render 'shared/error_messages', project: @project %>
+
+ <%= render 'shared/error_messages', object: @project %>
+
 <ul>
   <% @project.items.each do |item| %>
     <li><%= material_lookup(item) %></li>
   <% end %>
 </ul>
+
 <p><%= link_to "Back To Address", house_path(@project.house) %> </p>
 <p><%= link_to "Edit Project Name", edit_project_path %></p>
 <p><%= link_to "Update Items List", project_items_path(@project) %></p>

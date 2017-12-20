@@ -1,8 +1,9 @@
 <h2>Current Projects</h2>
   <ul>
     <% @projects.each do |project| %>
-    <p><%= project.house.address %> </p>
+      <p><%= project.house.address %> </p>
       <li><%= link_to project.name, project_path(project.id) %></li>
     <% end %>
+    
     <%= link_to "Projects With Insufficient Materials", insufficient_quantity_path %>
   </ul>

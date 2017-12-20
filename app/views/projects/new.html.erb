@@ -1,5 +1,5 @@
 <h2>Add A New Project</h2>
-<% binding.pry %>
+
 <%= form_for @project do |f|%>
   Name: <%= f.text_field :name %>
   <%= render  partial: 'project', :locals=>{:f => f} %>
