@@ -1,14 +1,14 @@
-<h2>Current Homes Needing Repair</h2>
+<h1>Home Improvement</h1>
 
 <p><%= link_to "Add A New Address", new_house_path %></p>
-
+  <center><%= image_tag("splash.jpg", alt: "Home Improvement") %></center>
 <ul>
   <% House.all.each do |house| %>
     <li><%= link_to house.address, house_path(house) %></li>
-    <ol>
+    <ul>
       <% house.projects.each do |project| %>
         <li><%= link_to project.name, project_path(project.id) %></li>
       <% end %>
-    </ol>
+    </ul>
   <% end %>
 </ul>

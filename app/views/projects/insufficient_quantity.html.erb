@@ -9,11 +9,11 @@
       <% @insufficient_quantity.each do |project| %>
         <li><%= link_to project.name, project_path(project) %></li>
 
-          <ol>
+          <li>
             <% show_materials_shortage(project).each do |item| %>
-              <li><%= item %></li>    
+              <li><%= item %></li>
             <% end %>
-          </ol>
+          </li><br></br>
 
        <% end %>
     </ul>
