@@ -1,4 +1,6 @@
-<h2> Items List for: <%= @project.name %>, <%= @project.house.address %></h2>
+
+<br></br>
+<h3><%= @project.name %>  |  <%= @project.house.address %></h3>
 
   <%= form_for @project do |f| %>
     <%= render  partial: '/projects/project', :locals=>{:f => f} %>

@@ -1,9 +1,10 @@
-<h2>Materials on hand</h2>
+<h3>Materials on hand</h3>
 
-<p><%= link_to "Add A New Material", new_material_path %></p>
 
 <ul>
   <% Material.all.each do |material| %>
     <p><%= link_to material.name, material_path(material)%> quantity on hand: <%= material.quantity_on_hand %></p>
   <% end %>
 </ul>
+
+<p><%= link_to "Add A New Material", new_material_path %></p>

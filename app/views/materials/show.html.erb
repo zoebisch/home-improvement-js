@@ -1,7 +1,6 @@
-<h2><%= @material.name %></h2>
-<h3> Current Inventory: <%= @material.quantity_on_hand%></h3>
+<h3><%= @material.name %></h3>
+<h4> Current Inventory: <%= @material.quantity_on_hand%></h4>
 
-<p><%= link_to "Edit Material", edit_material_path %></p>
 <p><%= material_being_used? %></p>
 
 <ul>
@@ -11,3 +10,5 @@
     <% end %>
   <% end %>
 </ul>
+
+<p><%= link_to "Edit Material", edit_material_path %></p>

@@ -1,6 +1,5 @@
-<h2>Now Viewing: <%= @house.address %></h2>
+<h2> <%= @house.address %></h2>
 
-<p><%= link_to "Edit Address", edit_house_path %> | <%= link_to "New Project", new_house_project_path(@house)%></p>
 
 <% if @house.projects.empty? %>
   <p><%= link_to "Remove Address", house_path(@house), method: :delete %></p>
@@ -13,3 +12,5 @@
   </ul>
 
 <% end %>
+
+<p><%= link_to "Edit Address", edit_house_path %> | <%= link_to "New Project", new_house_project_path(@house)%></p>

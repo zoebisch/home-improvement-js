@@ -1,10 +1,9 @@
-<h1>Home Improvement</h1>
 
-<p><%= link_to "Add A New Address", new_house_path %></p>
   <center><%= image_tag("splash.jpg", alt: "Home Improvement") %></center>
+  <br></br>
 <ul>
   <% House.all.each do |house| %>
-    <li><%= link_to house.address, house_path(house) %></li>
+    <p><%= link_to house.address, house_path(house) %></p>
     <ul>
       <% house.projects.each do |project| %>
         <li><%= link_to project.name, project_path(project.id) %></li>
@@ -12,3 +11,5 @@
     </ul>
   <% end %>
 </ul>
+
+<p><%= link_to "Add A New Address", new_house_path %></p>
