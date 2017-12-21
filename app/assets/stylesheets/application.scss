@@ -30,6 +30,10 @@
    resize: vertical;
  }
 
+ nav {
+   float: right;
+ }
+
  .center {
   text-align: center;
   h1 {
@@ -89,6 +93,7 @@ ul {
 
 li {
   text-align: left;
+  list-style-type: none;
 }
 
 footer {
@@ -108,6 +113,7 @@ footer a:hover {
 
 footer small {
   float: left;
+  margin-top: 10px;
 }
 
 footer ul {
@@ -145,6 +151,7 @@ $gray-medium-light: #eaeaea;
 input, textarea, select, {
   border: 1px solid #777;
   width: 25%;
+  margin-left: 1em;
   margin-bottom: 25px;
   @include box_sizing;
 }

@@ -43,17 +43,11 @@ class MaterialsController < ApplicationController
 
   def destroy
     @material = Material.find(params[:id])
-
-    if @material.items.any?
-      flash[:error] = "Cannot delete material, it is still being used!"
-      redirect_to materials_path
-    else
-      @material.delete
-      @material.save
-      redirect_to materials_path
-    end
-
+    @material.delete
+    @material.save
+    redirect_to materials_path
   end
+
 
 private
 
