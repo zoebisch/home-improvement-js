@@ -10,6 +10,7 @@ class Project < ApplicationRecord
       material = Material.find_or_create_by(name: material_hash[:name])
       material.quantity_on_hand = material_hash[:quantity_on_hand].to_i
       material.save
+      self.save
       self.add_item(material.id, material.quantity_on_hand)
     end
   end
@@ -25,7 +26,6 @@ class Project < ApplicationRecord
 
     if quantity > 0
       material = Material.find(material_id)
-
       if self.items.exists?(material_id: material_id)
         item = self.items.find_by(material_id: material_id)
       else
