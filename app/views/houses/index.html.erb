@@ -1,6 +1,6 @@
 
   <center><%= image_tag("splash.jpg", alt: "Home Improvement") %></center>
-  <br></br>
+  <br></br
 <ul>
   <% House.all.each do |house| %>
     <p><%= link_to house.address, house_path(house) %></p>

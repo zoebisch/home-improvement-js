@@ -10,6 +10,7 @@
 
   </p>
 
+  <p>
     <%= f.fields_for :materials, @project.materials.build do |mat| %>
       New Material: <%= mat.text_field :name %>
       Quantity On Hand: <%= mat.number_field :quantity_on_hand, min: 0, placeholder: mat.object.quantity_on_hand%>
@@ -20,6 +21,7 @@
       <% end %>
 
     <% end %>
+  </p>
 
   <%= f.hidden_field :house_id, :value => @project.house.id %><br><br>
   <%= f.submit %>
