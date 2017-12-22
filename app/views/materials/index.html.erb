@@ -1,6 +1,5 @@
 <h3>Materials on hand</h3>
 
-
 <ul>
   <% Material.all.each do |material| %>
     <p><%= link_to material.name, material_path(material)%> quantity on hand: <%= material.quantity_on_hand %></p>
