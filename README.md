@@ -23,6 +23,7 @@ TODO: Make use of material model unit and value_per_unit to add more functionali
 
 * Ruby version
   Built from ruby ver '2.3.1'
+  
 * System dependencies
   Authentication : Devise gem
                    Omniauth via Facebook, through Devise
@@ -30,11 +31,14 @@ TODO: Make use of material model unit and value_per_unit to add more functionali
 
   Bootstrap for CSS styling
                    bootstrap-sass  ver '3.3.7'
+
 * Database creation
   Database creation is driven through intuitive links/views
 
 * Database initialization
+  run 'rake db:migrate' to migrate into databases
   run 'rake db:seed' to obtain a simple data set
+
 * How to run the test suite
   run 'rspec ./spec' to validate novel model architecture
 
