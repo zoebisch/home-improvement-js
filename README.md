@@ -1,4 +1,6 @@
 # README
+
+# Usage
 "Home-improvement" is a RESTful content management system (CMS) built from Ruby Rails for use in tracking home improvement projects.  This is extendable to multiple addresses, and each Home (unique address) can contain many projects.  A materials
 database exists for tracking materials and quantity on hand. Projects have many items that are unique to a project but
 represent materials.  In this way materials can be indirectly added to or removed from a project, whilst retaining
@@ -20,26 +22,36 @@ All user input is checked using strong params and novel validations are in place
   User: standard Devise protections
 
 TODO: Make use of material model unit and value_per_unit to add more functionality to site (in the form of project cost)
+# Information
 
 * Ruby version
   Built from ruby ver '2.3.1'
-  
+
 * System dependencies
   Authentication : Devise gem
                    Omniauth via Facebook, through Devise
                    Dotenv rails for managing facebook env variables
 
-  Bootstrap for CSS styling
+* Bootstrap for CSS styling
                    bootstrap-sass  ver '3.3.7'
 
-* Database creation
-  Database creation is driven through intuitive links/views
+# Installation
 
-* Database initialization
-  run 'rake db:migrate' to migrate into databases
-  run 'rake db:seed' to obtain a simple data set
+  * Fork and clone repo
+    'git clone git@github.com:zoebisch/home-improvement.git'
+  * Setup
+    run 'bundle install'
+  * Database initialization
+    run 'rake db:migrate' to migrate into databases
+    run 'rake db:seed' to obtain a simple data set
 
 * How to run the test suite
   run 'rspec ./spec' to validate novel model architecture
+
+# Contributors Guide
+  * To file an issue, file with a pull request at git@github.com:zoebisch/home-impovement.github
+
+# Licensing
+  * Licensing provided under the MIT open source license.
 
 # home-improvement
