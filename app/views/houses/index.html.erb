@@ -5,7 +5,7 @@
     <p><%= link_to house.address, house_path(house) %></p>
     <ul>
       <% house.projects.each do |project| %>
-        <li><%= link_to project.name, project_path(project.id) %></li>
+        <li><%= link_to project.name, project_path(project.id) %> <%= project.status %></li>
       <% end %>
     </ul>
   <% end %>

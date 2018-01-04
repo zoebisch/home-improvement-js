@@ -1,5 +1,12 @@
 <br></br>
-<h3> <%= @project.name %> | <%= @project.house.address%></h3>
+<h3> <%= @project.name %> | <%= @project.house.address%> </h3>
+
+<h4>
+  <%= form_for @project do |f|%>
+      <%= f.select :status, ['not started', 'in progress', 'complete']%>
+      <%= f.submit "set status" %>
+    <% end %> 
+</h4>
 
  <%= render 'shared/error_messages', object: @project %>
 

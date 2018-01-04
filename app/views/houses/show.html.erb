@@ -10,7 +10,7 @@
   <h3>Current Projects</h3>
   <ul>
     <% @house.projects.each do |project| %>
-      <li><%= link_to project.name, project_path(project) %></li>
+      <li><%= link_to project.name, project_path(project) %> <%= project.status %></li>
     <% end %>
   </ul>
 

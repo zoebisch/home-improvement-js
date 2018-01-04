@@ -20,5 +20,5 @@ module ProjectsHelper
     end
     items_list
   end
-
+  
 end
