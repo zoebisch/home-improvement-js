@@ -1,15 +1,20 @@
   <center><%= image_tag("splash.jpg", alt: "Home Improvement") %></center>
-  <br></br
-<ul>
-  <% House.all.each do |house| %>
-    <p><%= link_to house.address, house_path(house) %></p>
-    <ul>
-      <% house.projects.each do |project| %>
-        <li><%= link_to project.name, project_path(project.id) %> <%= project.status %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</ul>
+  <br></br>
+<main id="main">
+  <ul>
+    <% House.all.each do |house| %>
+      <p><%= link_to house.address, house_path(house) %></p>
+      <ul>
+        <% house.projects.each do |project| %>
+          <li><%= link_to project.name, project_path(project.id) %> <%= project.status %></li>
+        <% end %>
+      </ul>
+      <script id="project-template" type="text/x-handlebars-template">
+        <p>{{name}} THIS IS A PROJ</p>
+      </script>
+    <% end %>
+  </ul>
 
-<p><%= link_to "Add A New Address", new_house_path %></p>
-<button id="save">Save Game</button>
+  <p><%= link_to "Add A New Address", new_house_path %></p>
+  <button id="save">Save Game</button>
+</main>

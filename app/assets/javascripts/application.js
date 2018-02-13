@@ -14,5 +14,6 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require handlebars
+//= require_tree ./templates
 //= require homeimprovement.js
