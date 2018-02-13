@@ -1,13 +1,8 @@
 class HousesController < ApplicationController
 
-  # def index
-  #   @houses = House.all
-  #   render json: @houses, status: 200
-  #   binding.pry
-  # end
-
   def show
     @house = House.find(params[:id])
+    render json: @house.projects.to_json
   end
 
   def new

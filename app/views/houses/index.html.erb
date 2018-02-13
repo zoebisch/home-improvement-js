@@ -7,6 +7,7 @@
       <ul>
         <% house.projects.each do |project| %>
           <li><%= link_to project.name, project_path(project.id) %> <%= project.status %></li>
+          <div id="house-<%= house.id %>"></div>
         <% end %>
         <button class="js-projects" data-id="<%= house.id %>">List Projects</button>
       </ul>
@@ -16,20 +17,19 @@
   <p><%= link_to "Add A New Address", new_house_path %></p>
   <button id="save">Save Game</button>
   <script type="text/javascript" charset="utf-8">
-$(function() {
-  $(".js-projects").on("click", function() {
-    var houseID = $(this).data("id");
-    $.get("/houses/" + houseID + ".json", function(data) {
-      var house = data;
-      var inventoryText = "Available";
-      var projects = house["products"];
-      var listProjects = "";
-      projects.forEach(function(project) {
-        listProjects += '<li class="js-project" data-id="' + project["id"] + '">' + project["id"] + '</li>';
+    $(function() {
+      $(".js-projects").on("click", function() {
+        var houseID = $(this).data("id");
+        $.get("/houses/" + houseID + ".json", function(data) {
+          var projects = data;
+          var listProjects = "";
+          projects.forEach(function(project) {
+            listProjects += '<li class="js-projects" data-id="' + project["id"] + '">' + project["name"] + '</li>';
+          });
+          debugger;
+          $('#house-' + houseID ).html(listProjects);
+        });
       });
-      $("#house-" + id + "-projects").html(listProjects);
     });
-  });
-});
-</script>
+  </script>
 </main>
