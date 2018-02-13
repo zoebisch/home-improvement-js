@@ -1,4 +1,11 @@
 class HousesController < ApplicationController
+
+  # def index
+  #   @houses = House.all
+  #   render json: @houses, status: 200
+  #   binding.pry
+  # end
+
   def show
     @house = House.find(params[:id])
   end
@@ -10,7 +17,7 @@ class HousesController < ApplicationController
   def create
     @house = House.new(params[:id])
     @house.update(house_params)
-    
+
     if @house.errors.messages != {}
       render 'new'
     else

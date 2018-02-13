@@ -7,9 +7,13 @@ class ProjectsController < ApplicationController
   def index
     if params[:house_id]
       @house = House.find(params[:house_id])
+      render json: @house, status: 200
+      binding.pry
       @projects = @house.projects
     else
       @projects = Project.all
+      render json: @house, status: 200
+      binding.pry
     end
   end
 
