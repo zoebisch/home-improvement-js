@@ -24,9 +24,9 @@
           var projects = data;
           var listProjects = "";
           projects.forEach(function(project) {
-            listProjects += '<li class="js-projects" data-id="' + project["id"] + '">' + project["name"] + '</li>';
+            var projectLink = '<a href="/projects/' + project["id"]+ '">' + project["name"] + '</a>';
+            listProjects += '<li class="js-projects" data-id="' + project["id"] + '">' + projectLink + project["status"] + '</li>';
           });
-          debugger;
           $('#house-' + houseID ).html(listProjects);
         });
       });
