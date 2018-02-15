@@ -24,16 +24,15 @@
   $(function() {
     $(".js-materials").on("click", function() {
       var projectID = $(this).data("id");
-      debugger;
       $.get("/projects/" + projectID + ".json", function(data) {
-        debugger;
         var materials = data;
         var listMaterials = "";
+
         materials.forEach(function(material) {
           var materialLink = '<a href="/materials/' + material["id"] + '">' + material["name"] + '</a>';
           listMaterials += '<li class="js-materials" data-id="' + material["id"] + '">' + materialLink + material["status"] + '</li>';
         });
-        debugger;
+        
         console.log(listMaterials);
         $('#project-' + projectID ).html(listMaterials);
       });
