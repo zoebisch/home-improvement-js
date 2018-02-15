@@ -6,7 +6,6 @@
       <p><%= link_to house.address, house_path(house) %></p>
       <ul>
         <% house.projects.each do |project| %>
-          <li><%= link_to project.name, project_path(project.id) %> <%= project.status %></li>
           <div id="house-<%= house.id %>"></div>
         <% end %>
         <button class="js-projects" data-id="<%= house.id %>">List Projects</button>
@@ -21,12 +20,16 @@
       $(".js-projects").on("click", function() {
         var houseID = $(this).data("id");
         $.get("/houses/" + houseID + ".json", function(data) {
+          debugger;
           var projects = data;
           var listProjects = "";
           projects.forEach(function(project) {
             var projectLink = '<a href="/projects/' + project["id"]+ '">' + project["name"] + '</a>';
             listProjects += '<li class="js-projects" data-id="' + project["id"] + '">' + projectLink + project["status"] + '</li>';
           });
+          if (listProjects == "") {listProjects += '<li class="js-projects" data-id="1">Blah</li>'};
+          console.log(listProjects);
+          debugger;
           $('#house-' + houseID ).html(listProjects);
         });
       });

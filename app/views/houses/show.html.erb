@@ -11,9 +11,32 @@
   <ul>
     <% @house.projects.each do |project| %>
       <li><%= link_to project.name, project_path(project) %> <%= project.status %></li>
+      <div id="project-<%= project.id %>"></div>
+      <button class="js-materials" data-id="<%= project.id %>"> List Materials</button>
     <% end %>
   </ul>
 
 <% end %>
 
 <p><%= link_to "Edit Address", edit_house_path %> | <%= link_to "New Project", new_house_project_path(@house)%></p>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $(".js-materials").on("click", function() {
+      var projectID = $(this).data("id");
+      debugger;
+      $.get("/projects/" + projectID + ".json", function(data) {
+        debugger;
+        var materials = data;
+        var listMaterials = "";
+        materials.forEach(function(material) {
+          var materialLink = '<a href="/materials/' + material["id"] + '">' + material["name"] + '</a>';
+          listMaterials += '<li class="js-materials" data-id="' + material["id"] + '">' + materialLink + material["status"] + '</li>';
+        });
+        debugger;
+        console.log(listMaterials);
+        $('#project-' + projectID ).html(listMaterials);
+      });
+    });
+  });
+</script>

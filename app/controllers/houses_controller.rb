@@ -1,8 +1,15 @@
 class HousesController < ApplicationController
 
+  def index
+  end
+
   def show
     @house = House.find(params[:id])
-    render json: @house.projects.to_json
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @house.projects.to_json }
+    end
   end
 
   def new
