@@ -10,6 +10,7 @@ class MaterialsController < ApplicationController
   end
 
   def new
+     # raise "stop".inspect
     @material = Material.new()
   end
 

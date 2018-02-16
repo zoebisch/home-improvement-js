@@ -7,13 +7,11 @@ class ProjectsController < ApplicationController
   def index
     if params[:house_id]
       @house = House.find(params[:house_id])
-      render json: @house, status: 200
-      binding.pry
+      # render json: @house, status: 200
       @projects = @house.projects
     else
       @projects = Project.all
-      render json: @house, status: 200
-      binding.pry
+      # render json: @house, status: 200
     end
   end
 
@@ -41,7 +39,6 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    binding.pry
     @project = Project.new()
     @project.update(project_params)
 
