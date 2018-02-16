@@ -20,6 +20,9 @@
       <% end %>
 
     <% end %>
+    <button class="js-materials" data-id="<%= Material.last.id + 1%>"> + Material</button>
+    <div id="material-<%= Material.last.id + 1 %>"></div>"
+
   </p>
 
   <%= f.hidden_field :house_id, :value => @project.house.id %><br><br>

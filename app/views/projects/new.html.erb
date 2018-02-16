@@ -5,20 +5,16 @@
   <%= render  partial: 'project', :locals=>{:f => f} %>
 <% end %>
 
-<body>
-    <button class="js-materials" data-id="<%= Material.last.id + 1%>"> + Material</button>
-    <div id="material-<%= Material.last.id + 1 %>">place form here</div>"
-</body>
 <script type="text/javascript" charset="utf-8">
   $(function() {
     $(".js-materials").on("click", function() {
+        event.preventDefault();
         var materialID = $(this).data("id");
         var materialForm = $('<form></form"');
-        //var name = $('<form> <input name="name" type="hidden"></form>');
-        materialForm.append('<input type="text" value="name"></input>');
+        materialForm.append('<input type="text" value="name" id="project_materials_name"></input>');
+        materialForm.append('<input type="text" value="0" id="project_materials_quantity_on_hand"')
         debugger;
         $('#material-' + materialID).append(materialForm);
-        // $('#project-' + projectID ).html(listMaterials);
       });
     });
 </script>

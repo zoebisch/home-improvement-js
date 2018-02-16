@@ -41,6 +41,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    binding.pry
     @project = Project.new()
     @project.update(project_params)
 
