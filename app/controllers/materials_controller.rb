@@ -12,9 +12,14 @@ class MaterialsController < ApplicationController
   def new
      # raise "stop".inspect
     @material = Material.new()
+    respond_to do |format|
+      format.html { render :new}
+      format.json { render json: @material }
+    end
   end
 
   def create
+    binding.pry
     @material = Material.new()
     @material.update(material_params)
 
@@ -31,6 +36,7 @@ class MaterialsController < ApplicationController
   end
 
   def update
+    binding.pry
     @material = Material.find(params[:id])
     @material.update(material_params)
 

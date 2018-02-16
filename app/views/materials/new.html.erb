@@ -1,29 +1,2 @@
 <h2>Add A New Material</h2>
 <%= render 'form' %>
-<button class="js-materials" data-id="<%= Material.last.id + 1%>"> + Material</button>
-<button id="button" data-url="/materials/new">+test</button>
-<div id="material-<%= Material.last.id + 1 %>"></div>
-<button class="testbutton" data-url="/materials/new">+testsfdsadf</button>
-<script type="text/javascript" charset="utf-8">
-$(function() {
-  $(".js-materials").on("click", function() {
-      event.preventDefault();
-      var materialID = $(this).data("id");
-      var materialForm = $('<form></form"');
-      materialForm.append('New Material: <input type="text" name="project[materials][name]" id="project_materials_name"> ');
-      materialForm.append('Quantity On Hand: <input type="number" value="0" name="project[materials][quantity_on_hand]" id="project_materials_quantity_on_hand">');
-      materialForm.append('Quantity On Hand: <input type="number" value="0" name="project[items_attributes][' + 4+ '][quantity]" id="project_materials_quantity_on_hand">')
-      debugger;
-      $('#material-' + materialID).append(materialForm);
-    });
-  });
-  $(function() {
-  $(".testbutton").click(function(event){
-    debugger;
-    var url = $(this).data("url");
-    $.get(url, function(response){
-      console.log(response);
-    });
-  });
-});
-</script>
