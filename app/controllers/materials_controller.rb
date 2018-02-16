@@ -10,8 +10,8 @@ class MaterialsController < ApplicationController
   end
 
   def new
-     # raise "stop".inspect
     @material = Material.new()
+
     respond_to do |format|
       format.html { render :new}
       format.json { render json: @material }
@@ -19,7 +19,6 @@ class MaterialsController < ApplicationController
   end
 
   def create
-    binding.pry
     @material = Material.new()
     @material.update(material_params)
 

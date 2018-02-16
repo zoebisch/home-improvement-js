@@ -27,10 +27,14 @@ $(function() {
   $(function() {
   $(".testbutton").click(function(event){
     debugger;
-
+    var $button = $(this);
     var url = $(this).data("url");
+
     $.get(url, function(response){
+      // $(".result").html(response);
+      $button.before(response);
       console.log(response);
+      debugger;
     });
   });
 });
