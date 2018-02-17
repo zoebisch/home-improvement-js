@@ -13,8 +13,8 @@ class MaterialsController < ApplicationController
     @material = Material.new()
 
     respond_to do |format|
-      format.html { render :new}
       format.json { render json: @material }
+      format.html { render :new}
     end
   end
 
@@ -35,7 +35,6 @@ class MaterialsController < ApplicationController
   end
 
   def update
-    binding.pry
     @material = Material.find(params[:id])
     @material.update(material_params)
 
