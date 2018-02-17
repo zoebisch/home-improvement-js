@@ -24,11 +24,6 @@ class MaterialsController < ApplicationController
       render 'new'
     else
       render json: @material, status: 201
-      # respond_to do |format|
-      #   format.json { render json: @material }
-      #   format.html { render :new}
-      # end
-      # redirect_to material_path(@material)
     end
 
   end

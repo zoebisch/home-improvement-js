@@ -4,18 +4,18 @@
   <% Material.all.each do |material| %>
     <p><%= link_to material.name, material_path(material)%> quantity on hand: <%= material.quantity_on_hand %></p>
   <% end %>
-  <div id="materialResult">
-    <h2 id="materialName"></h2>
-    <p id="materialQuantity"></p>
-  </div>
 </ul>
 
-<%= render 'form' %>
+<div id="materialLink">
+</div>
 
+<!-- <div class="blah" id="<%=  Material.last.id+1 %>"> -->
+<%= render 'form' %>
+<!-- </div> -->
 <!-- <p><%= link_to "Add A New Material", new_material_path %></p> -->
-<button class="js-materials" data-id="<%= Material.last.id + 1%>"> + Material</button>
+<!-- <button class="js-materials" data-id="<%= Material.last.id + 1%>"> + Material</button>
 <div id="material-<%= Material.last.id + 1 %>"></div>
-<button class="testbutton" data-url="/materials/new" data-id="<%= Material.last.id + 1%>">Submit</button>
+<button class="testbutton" data-url="/materials/new" data-id="<%= Material.last.id + 1%>">Submit</button> -->
 
 <script type="text/javascript" charset="utf-8">
 
@@ -35,10 +35,16 @@ $(function () {
     var values = $(this).serialize();
     var material = $.post('/materials', values);
     material.done(function(data) {
-      debugger;
       var material = data;
-      $("#materialName").text(material["name"]);
-      $("#materialQuantity").text(material["quantity_on_hand"]);
+
+      var materialLink = '<ul><p><a href="/materials/' + material["id"] + '">' + material["name"] + '</a></p></ul>';
+
+      // $("#materialName").text(material["name"]);
+      // $("#materialQuantity").text(material["quantity_on_hand"]);
+      //     $('#project-' + projectID ).html(listMaterials);
+      $("#materialLink").html(materialLink);
+      console.log("done");
+      // $("#materialQuantity").text(material["quantity_on_hand"]);
     });
   });
 });
