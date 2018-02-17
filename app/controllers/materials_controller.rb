@@ -7,25 +7,28 @@ class MaterialsController < ApplicationController
 
   def show
     @material = Material.find(params[:id])
-  end
-
-  def new
-    @material = Material.new()
-
     respond_to do |format|
       format.json { render json: @material }
       format.html { render :new}
     end
   end
 
+  def new
+    @material = Material.new()
+  end
+
   def create
     @material = Material.new()
     @material.update(material_params)
-
     if @material.errors.messages != {}
       render 'new'
     else
-      redirect_to material_path(@material)
+      render json: @material, status: 201
+      # respond_to do |format|
+      #   format.json { render json: @material }
+      #   format.html { render :new}
+      # end
+      # redirect_to material_path(@material)
     end
 
   end

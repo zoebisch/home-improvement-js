@@ -4,71 +4,42 @@
   <% Material.all.each do |material| %>
     <p><%= link_to material.name, material_path(material)%> quantity on hand: <%= material.quantity_on_hand %></p>
   <% end %>
+  <div id="materialResult">
+    <h2 id="materialName"></h2>
+    <p id="materialQuantity"></p>
+  </div>
 </ul>
+
+<%= render 'form' %>
 
 <!-- <p><%= link_to "Add A New Material", new_material_path %></p> -->
 <button class="js-materials" data-id="<%= Material.last.id + 1%>"> + Material</button>
 <div id="material-<%= Material.last.id + 1 %>"></div>
-<!-- <button class="testbutton" data-url="/materials/new" data-id="<%= Material.last.id + 1%>">Submit</button> -->
-
-<!-- <%= form_for(@material) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %> -->
+<button class="testbutton" data-url="/materials/new" data-id="<%= Material.last.id + 1%>">Submit</button>
 
 <script type="text/javascript" charset="utf-8">
 
 $(function () {
-  $(".js-materials").on("click", function() {
-    event.preventDefault();
-    var materialID = $(this).data("id");
-    var materialForm = $('<form class="new_material" id=new_material </form>');
-    materialForm.append('<input type="text" name="material[name]" id="material_name" />')
-    $('#material-' + materialID).append(materialForm);
-  });
+  // $(".js-materials").on("click", function() {
+  //   event.preventDefault();
+  //   var materialID = $(this).data("id");
+  //   var materialForm = $('<form class="new_material" id=new_material </form>');
+  //   materialForm.append('<input type="text" name="material[name]" id="material_name" />')
+  //   materialForm.append('<input type="submit" name="commit" value="Create Material"/>')
+  //   $('#material-' + materialID).append(materialForm);
+  // });
 
-  $('form').submit(function(event) {
-    debugger;
+  $('.new_material').submit(function(event) {
     //prevent form from submitting the default way
     event.preventDefault();
-
     var values = $(this).serialize();
-
-    var posting = $.post('/posts', values);
-
-    posting.done(function(data) {
-      var post = data;
-      $("#postTitle").text(post["title"]);
-      $("#postBody").text(post["description"]);
+    var material = $.post('/materials', values);
+    material.done(function(data) {
+      debugger;
+      var material = data;
+      $("#materialName").text(material["name"]);
+      $("#materialQuantity").text(material["quantity_on_hand"]);
     });
   });
 });
-// $(function() {
-  // $("#testbutton").on("submit", function(response){
-  //   // $(".result").html(response);
-  //   debugger;
-  //   $button.before(response);
-  //   console.log(response);
-  //   debugger;
-  // });
-
-  // $(function() {
-  // $(".testbutton").submit(function(event){
-  //   event.preventDefault();
-  //   var $button = $(this);
-  //   var url = $(this).data("url");
-  //   var name = document.getElementById("project_materials_name").value;
-  //   var qoh = document.getElementById("project_materials_quantity_on_hand").value;
-  //   var materialID = $(this).data("id");
-  //   debugger;
-    // $.post(url, function(response){
-    //   debugger;
-    // });
-  // });
-// });
 </script>
