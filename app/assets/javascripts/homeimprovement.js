@@ -1,16 +1,8 @@
 $(document).ready(function() {
- attachListeners();
- listProjects();
 });
 
-function attachListeners(){
-  $('#save').on('click', () => saveGame());
-}
-
-function saveGame() {
-  console.log("first steps")
-}
-
-function listProjects() {
-
+function parseMaterial(material) {
+  debugger;
+  const stuff = JSON.parse(this.responseText)
+  document.getElementById("stuff".innerHTML = stuff)
 }

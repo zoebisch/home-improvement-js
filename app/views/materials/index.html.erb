@@ -16,10 +16,19 @@
 <!-- <button class="js-materials" data-id="<%= Material.last.id + 1%>"> + Material</button>
 <div id="material-<%= Material.last.id + 1 %>"></div>
 <button class="testbutton" data-url="/materials/new" data-id="<%= Material.last.id + 1%>">Submit</button> -->
-
+<button  id="test">test</button>
 <script type="text/javascript" charset="utf-8">
 
 $(function () {
+  $("#test").on('click', function() {
+    debugger;
+    var id = $(this).data("id");
+    $.getJSON("/materials/" + 1 + "/blah", function(data) {
+      // Replace text of body-id div
+      debugger;
+      $("#body-" + id).html(data["description"]);
+    });
+  });
   // $(".js-materials").on("click", function() {
   //   event.preventDefault();
   //   var materialID = $(this).data("id");
@@ -36,7 +45,7 @@ $(function () {
     var material = $.post('/materials', values);
     material.done(function(data) {
       var material = data;
-
+      debugger;
       var materialLink = '<ul><p><a href="/materials/' + material["id"] + '">' + material["name"] + '</a></p></ul>';
 
       // $("#materialName").text(material["name"]);

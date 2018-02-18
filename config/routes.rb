@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   end
 
   get '/projects/materials/new' => 'materials#new'
+  get '/materials/:id/blah', to: 'materials#blah'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

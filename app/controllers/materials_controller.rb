@@ -1,16 +1,18 @@
 class MaterialsController < ApplicationController
 
+  def blah
+    @material = Material.find(1)
+    render :json => @material
+  end
+
   def index
     @material = Material.new()
     @materials = Material.all
+    # render :json => @materials
   end
 
   def show
     @material = Material.find(params[:id])
-    respond_to do |format|
-      format.json { render json: @material }
-      format.html { render :new}
-    end
   end
 
   def new
@@ -50,7 +52,6 @@ class MaterialsController < ApplicationController
     @material.save
     redirect_to materials_path
   end
-
 
 private
 
