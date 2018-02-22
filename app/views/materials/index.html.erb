@@ -1,10 +1,14 @@
-<h3>Materials on hand</h3>
+<h3>Materials List</h3>
 
 <ul>
   <% Material.all.each do |material| %>
     <p><%= link_to material.name, material_path(material)%> quantity on hand: <%= material.quantity_on_hand %></p>
+      <div id="blah-<%= material.id %>"></div>
+
+      <button class="test" data-id="<%= material.id %>">blah</button>
   <% end %>
 </ul>
+
 
 <div id="materialLink">
 </div>
@@ -16,18 +20,19 @@
 <!-- <button class="js-materials" data-id="<%= Material.last.id + 1%>"> + Material</button>
 <div id="material-<%= Material.last.id + 1 %>"></div>
 <button class="testbutton" data-url="/materials/new" data-id="<%= Material.last.id + 1%>">Submit</button> -->
-<button  id="test">test</button>
+
 <script type="text/javascript" charset="utf-8">
 
 $(function () {
-  $("#test").on('click', function() {
+  $(".test").on('click', function() {
     debugger;
     var id = $(this).data("id");
-    $.getJSON("/materials/" + 1 + "/blah", function(data) {
-      // Replace text of body-id div
-      debugger;
-      $("#body-" + id).html(data["description"]);
-    });
+    parseMaterial(id)
+    // $.getJSON("/materials/" + id + "/blah", function(data) {
+    //   // Replace text of body-id div
+    //   debugger;
+    //   $("#blah-" + id).html(data["name"]);
+    // });
   });
   // $(".js-materials").on("click", function() {
   //   event.preventDefault();
