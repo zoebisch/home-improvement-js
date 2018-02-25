@@ -1,6 +1,8 @@
 <h3>Add A New Material</h3>
 <div id="materialResult">
-  <h4 id="material-<%= Material.last.id + 1 %>"></h4> <p id="materialQuantityOnHand"></p>
+  <ul>
+    <li><h4 id="materialName"></h4> <p id="materialQuantityOnHand"></p></li>
+  </ul>
 </div>
 
 <%= render 'form' %>
@@ -8,15 +10,15 @@
 <script type="text/javascript" charset="utf-8">
 
 $(function () {
-  $('form').submit(function(event) {
+  $('.new_material').on("submit", function(event) {
     event.preventDefault();
     var values = $(this).serialize();
     var materialID = this.id;
-    debugger;
+
     var material = $.post('/materials', values);
       material.done(function(data) {
         var material = data;
-        $("#material-" + materialID).text(material["name"] + ", Quantity On Hand: " + material["quantity_on_hand"]);
+        $("#materialName").text(material["name"] + ", Quantity On Hand: " + material["quantity_on_hand"]);
       });
     });
   });
