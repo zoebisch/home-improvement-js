@@ -9,9 +9,12 @@
   <% end %>
 </ul>
 
-
-<div id="materialLink">
+<div id="materialResult">
+  <h2 id="materialName">should be here</h2>
+  <p id="materialQuantityOnHand"></p>
 </div>
+<!-- <div id="materialLink">
+</div> -->
 
 <!-- <div class="blah" id="<%=  Material.last.id+1 %>"> -->
 <%= render 'form' %>
@@ -43,22 +46,32 @@ $(function () {
   //   $('#material-' + materialID).append(materialForm);
   // });
 
-  $('.new_material').submit(function(event) {
+  $('form').submit(function(event) {
     //prevent form from submitting the default way
     event.preventDefault();
     var values = $(this).serialize();
     var material = $.post('/materials', values);
     material.done(function(data) {
       var material = data;
-      debugger;
-      var materialLink = '<ul><p><a href="/materials/' + material["id"] + '">' + material["name"] + '</a></p></ul>';
+      // debugger;
+      // var materialLink = '<ul><p><a href="/materials/' + material["id"] + '">' + material["name"] + '</a></p></ul>';
 
       // $("#materialName").text(material["name"]);
       // $("#materialQuantity").text(material["quantity_on_hand"]);
       //     $('#project-' + projectID ).html(listMaterials);
-      $("#materialLink").html(materialLink);
-      console.log("done");
+      // $("#materialLink").html(materialLink);
+      // console.log("done");
       // $("#materialQuantity").text(material["quantity_on_hand"]);
+      var values = $(this).serialize();
+      debugger;
+      var material = $.post('/materials', values);
+      debugger;
+      material.done(function(data) {
+        debugger;
+        var material = data;
+        $("#materialName").text(material["name"]);
+        $("#materialQuantityOnHand").text(material["quantity_on_hand"]);
+      });
     });
   });
 });
