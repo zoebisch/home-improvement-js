@@ -1,21 +1,9 @@
-<h2>Add A New Material</h2>
-<!-- <%= render 'form' %> -->
-<%= form_for(@material) do |f| %>
-  <p>
-    <!-- <%= render 'shared/error_messages', object: @material %> -->
-    <%= f.label "Name" %>
-    <%= f.text_field :name %>
-    <%= f.label "Quantity On Hand" %>
-    <%= f.number_field :quantity_on_hand, min: 0, placeholder: @material.quantity_on_hand %>
-  </p>
-  <%= f.submit %>
-<% end %>
-
+<h3>Add A New Material</h3>
 <div id="materialResult">
-  <h2 id="materialName">should be here</h2>
-  <p id="materialQuantityOnHand"></p>
+  <h4 id="materialName"></h4> <p id="materialQuantityOnHand"></p>
 </div>
 
+<%= render 'form' %>
 
 <script type="text/javascript" charset="utf-8">
 
@@ -25,10 +13,8 @@ $(function () {
     var values = $(this).serialize();
     var material = $.post('/materials', values);
       material.done(function(data) {
-        debugger;
         var material = data;
-        $("#materialName").text(material["name"]);
-        $("#materialQuantityOnHand").text(material["quantity_on_hand"]);
+        $("#materialName").text(material["name"] + ", Quantity On Hand: " + material["quantity_on_hand"]);
       });
     });
   });

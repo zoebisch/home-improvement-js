@@ -25,7 +25,6 @@ class MaterialsController < ApplicationController
     if @material.errors.messages != {}
       render 'new'
     else
-      binding.pry
       render json: @material, status: 201
     end
 
