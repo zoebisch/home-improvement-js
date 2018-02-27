@@ -10,7 +10,7 @@
 <script type="text/javascript" charset="utf-8">
 
 $(function () {
-  $('.new_material').on("click", function(event) {
+  $('.new_material').on("submit", function(event) {
     event.preventDefault();
     var values = $(this).serialize();
     var materialID = this.id;
@@ -18,11 +18,10 @@ $(function () {
     var material = $.post('/materials', values);
       material.done(function(data) {
         var material = data;
-        // $("#materialName").replaceWith(material["name"] + ", Quantity On Hand: " + material["quantity_on_hand"]);
-        // $("#materialName").text(material["name"] + ", Quantity On Hand: " + material["quantity_on_hand"]);
-        $("#materialName").append("<li id=material-" + materialID +">" + material["name"] + "</li>")
+        $("#materialName").append("<li id=material-" + materialID +">" + material["name"] + " - quantity on hand: " + material["quantity_on_hand"] + "</li>")
 
       });
+      return false; //Super Important! This returns the form submit button to original state by NOT submitting the form. (sounds strange...I know but it works)
     });
   });
 </script>
