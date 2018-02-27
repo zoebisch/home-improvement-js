@@ -30632,3 +30632,318 @@ Processing by MaterialsController#index as HTML
 Completed 200 OK in 133ms (Views: 114.7ms | ActiveRecord: 1.2ms)
 
 
+Started GET "/houses" for 127.0.0.1 at 2018-02-26 21:34:45 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HousesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering houses/index.html.erb within layouts/application
+  [1m[36mHouse Load (0.6ms)[0m  [1m[34mSELECT "houses".* FROM "houses"[0m
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."house_id" = ?[0m  [["house_id", 1]]
+  Rendered houses/index.html.erb within layouts/application (312.1ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 481ms (Views: 437.7ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/houses" for 127.0.0.1 at 2018-02-26 21:35:01 -0500
+Processing by HousesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering houses/index.html.erb within layouts/application
+  [1m[36mHouse Load (0.3ms)[0m  [1m[34mSELECT "houses".* FROM "houses"[0m
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."house_id" = ?[0m  [["house_id", 1]]
+  Rendered houses/index.html.erb within layouts/application (14.3ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 132ms (Views: 120.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/houses/1.json" for 127.0.0.1 at 2018-02-26 21:35:04 -0500
+Processing by HousesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHouse Load (0.3ms)[0m  [1m[34mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."house_id" = ?[0m  [["house_id", 1]]
+Completed 200 OK in 31ms (Views: 13.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/houses/1" for 127.0.0.1 at 2018-02-26 21:35:06 -0500
+Processing by HousesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1m[34mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering houses/show.html.erb within layouts/application
+  [1m[36mProject Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "projects" WHERE "projects"."house_id" = ? LIMIT ?[0m  [["house_id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."house_id" = ?[0m  [["house_id", 1]]
+  Rendered houses/show.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 174ms (Views: 160.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/projects/1.json" for 127.0.0.1 at 2018-02-26 21:35:08 -0500
+Processing by ProjectsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMaterial Load (1.1ms)[0m  [1m[34mSELECT "materials".* FROM "materials" INNER JOIN "items" ON "materials"."id" = "items"."material_id" WHERE "items"."project_id" = ?[0m  [["project_id", 1]]
+Completed 200 OK in 74ms (Views: 0.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/materials" for 127.0.0.1 at 2018-02-26 21:39:37 -0500
+Processing by MaterialsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/index.html.erb within layouts/application
+  [1m[36mMaterial Load (0.6ms)[0m  [1m[34mSELECT "materials".* FROM "materials"[0m
+  Rendered shared/_error_messages.html.erb (1.4ms)
+  Rendered materials/_form.html.erb (50.2ms)
+  Rendered materials/index.html.erb within layouts/application (69.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 132ms (Views: 122.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/materials/new" for 127.0.0.1 at 2018-02-26 21:39:40 -0500
+Processing by MaterialsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.6ms)
+  Rendered materials/_form.html.erb (6.9ms)
+  Rendered materials/new.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 87ms (Views: 81.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/materials" for 127.0.0.1 at 2018-02-26 21:39:45 -0500
+Processing by MaterialsController#create as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KKPMOaL0V7U57Mka4pZv1FlwJo43DRAPvyy+VOnXQrAol7DwV2sNMOOA22OSVs9DAlJcfknRT9S06jzP5xACHA==", "material"=>{"name"=>"shopbob", "quantity_on_hand"=>"2"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMaterial Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" WHERE "materials"."name" = ? LIMIT ?[0m  [["name", "shopbob"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "materials" ("name", "quantity_on_hand", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "shopbob"], ["quantity_on_hand", 2], ["created_at", "2018-02-27 02:39:45.938360"], ["updated_at", "2018-02-27 02:39:45.938360"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered MaterialSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 201 Created in 38ms (Views: 25.8ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/materials" for 127.0.0.1 at 2018-02-26 21:39:50 -0500
+Processing by MaterialsController#create as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KKPMOaL0V7U57Mka4pZv1FlwJo43DRAPvyy+VOnXQrAol7DwV2sNMOOA22OSVs9DAlJcfknRT9S06jzP5xACHA==", "material"=>{"name"=>"shopbob3", "quantity_on_hand"=>"22"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMaterial Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" WHERE "materials"."name" = ? LIMIT ?[0m  [["name", "shopbob3"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "materials" ("name", "quantity_on_hand", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "shopbob3"], ["quantity_on_hand", 22], ["created_at", "2018-02-27 02:39:50.486207"], ["updated_at", "2018-02-27 02:39:50.486207"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered MaterialSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 201 Created in 11ms (Views: 1.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/materials" for 127.0.0.1 at 2018-02-26 21:39:53 -0500
+Processing by MaterialsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/index.html.erb within layouts/application
+  [1m[36mMaterial Load (0.5ms)[0m  [1m[34mSELECT "materials".* FROM "materials"[0m
+  Rendered shared/_error_messages.html.erb (1.1ms)
+  Rendered materials/_form.html.erb (11.5ms)
+  Rendered materials/index.html.erb within layouts/application (44.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 133ms (Views: 116.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/materials" for 127.0.0.1 at 2018-02-26 21:40:52 -0500
+Processing by MaterialsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/index.html.erb within layouts/application
+  [1m[36mMaterial Load (0.4ms)[0m  [1m[34mSELECT "materials".* FROM "materials"[0m
+  Rendered shared/_error_messages.html.erb (1.1ms)
+  Rendered materials/_form.html.erb (8.6ms)
+  Rendered materials/index.html.erb within layouts/application (19.1ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 86ms (Views: 79.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/houses" for 127.0.0.1 at 2018-02-26 21:40:58 -0500
+Processing by HousesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering houses/index.html.erb within layouts/application
+  [1m[36mHouse Load (0.2ms)[0m  [1m[34mSELECT "houses".* FROM "houses"[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."house_id" = ?[0m  [["house_id", 1]]
+  Rendered houses/index.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 153ms (Views: 142.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/houses/1.json" for 127.0.0.1 at 2018-02-26 21:41:02 -0500
+Processing by HousesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mHouse Load (0.2ms)[0m  [1m[34mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."house_id" = ?[0m  [["house_id", 1]]
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2018-02-26 21:41:04 -0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mHouse Load (0.2ms)[0m  [1m[34mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_error_messages.html.erb (0.8ms)
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."project_id" = ?[0m  [["project_id", 1]]
+  [1m[36mMaterial Load (0.3ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (40.9ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 132ms (Views: 125.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/materials/1" for 127.0.0.1 at 2018-02-26 21:41:07 -0500
+Processing by MaterialsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering materials/show.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[36mMaterial Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" INNER JOIN "items" ON "materials"."id" = "items"."material_id" WHERE "items"."project_id" = ? AND "materials"."id" = ? LIMIT ?[0m  [["project_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mMaterial Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" INNER JOIN "items" ON "materials"."id" = "items"."material_id" WHERE "items"."project_id" = ? AND "materials"."id" = ? LIMIT ?[0m  [["project_id", 2], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[36mCACHE Material Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" INNER JOIN "items" ON "materials"."id" = "items"."material_id" WHERE "items"."project_id" = ? AND "materials"."id" = ? LIMIT ?[0m  [["project_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Material Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" INNER JOIN "items" ON "materials"."id" = "items"."material_id" WHERE "items"."project_id" = ? AND "materials"."id" = ? LIMIT ?[0m  [["project_id", 2], ["id", 1], ["LIMIT", 1]]
+  Rendered materials/show.html.erb within layouts/application (14.7ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 140ms (Views: 83.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2018-02-26 21:41:10 -0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mHouse Load (0.2ms)[0m  [1m[34mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered shared/_error_messages.html.erb (0.7ms)
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."project_id" = ?[0m  [["project_id", 1]]
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered projects/show.html.erb within layouts/application (22.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 121ms (Views: 113.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/materials" for 127.0.0.1 at 2018-02-26 21:41:12 -0500
+Processing by MaterialsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/index.html.erb within layouts/application
+  [1m[36mMaterial Load (1.6ms)[0m  [1m[34mSELECT "materials".* FROM "materials"[0m
+  Rendered shared/_error_messages.html.erb (0.8ms)
+  Rendered materials/_form.html.erb (10.5ms)
+  Rendered materials/index.html.erb within layouts/application (60.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 198ms (Views: 172.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/materials/1" for 127.0.0.1 at 2018-02-26 21:41:14 -0500
+Processing by MaterialsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering materials/show.html.erb within layouts/application
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[36mMaterial Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" INNER JOIN "items" ON "materials"."id" = "items"."material_id" WHERE "items"."project_id" = ? AND "materials"."id" = ? LIMIT ?[0m  [["project_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mMaterial Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" INNER JOIN "items" ON "materials"."id" = "items"."material_id" WHERE "items"."project_id" = ? AND "materials"."id" = ? LIMIT ?[0m  [["project_id", 2], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Project Load (0.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[36mCACHE Material Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" INNER JOIN "items" ON "materials"."id" = "items"."material_id" WHERE "items"."project_id" = ? AND "materials"."id" = ? LIMIT ?[0m  [["project_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Material Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" INNER JOIN "items" ON "materials"."id" = "items"."material_id" WHERE "items"."project_id" = ? AND "materials"."id" = ? LIMIT ?[0m  [["project_id", 2], ["id", 1], ["LIMIT", 1]]
+  Rendered materials/show.html.erb within layouts/application (23.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 127ms (Views: 108.6ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/insufficient_quantity" for 127.0.0.1 at 2018-02-26 21:41:15 -0500
+Processing by ProjectsController#insufficient_quantity as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."project_id" = ?[0m  [["project_id", 1]]
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMaterial Load (0.3ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."project_id" = ?[0m  [["project_id", 2]]
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/insufficient_quantity.html.erb within layouts/application
+  [1m[36mCACHE Material Load (0.0ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Material Load (0.0ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered projects/insufficient_quantity.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 130ms (Views: 104.1ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/materials" for 127.0.0.1 at 2018-02-26 21:41:19 -0500
+Processing by MaterialsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/index.html.erb within layouts/application
+  [1m[36mMaterial Load (0.4ms)[0m  [1m[34mSELECT "materials".* FROM "materials"[0m
+  Rendered shared/_error_messages.html.erb (0.8ms)
+  Rendered materials/_form.html.erb (9.8ms)
+  Rendered materials/index.html.erb within layouts/application (27.9ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 158ms (Views: 146.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/materials/new" for 127.0.0.1 at 2018-02-26 21:41:23 -0500
+Processing by MaterialsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.9ms)
+  Rendered materials/_form.html.erb (8.5ms)
+  Rendered materials/new.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 91ms (Views: 86.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/materials" for 127.0.0.1 at 2018-02-26 21:41:30 -0500
+Processing by MaterialsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/index.html.erb within layouts/application
+  [1m[36mMaterial Load (0.5ms)[0m  [1m[34mSELECT "materials".* FROM "materials"[0m
+  Rendered shared/_error_messages.html.erb (0.6ms)
+  Rendered materials/_form.html.erb (8.8ms)
+  Rendered materials/index.html.erb within layouts/application (66.8ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 159ms (Views: 149.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/materials" for 127.0.0.1 at 2018-02-26 21:43:12 -0500
+Processing by MaterialsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/index.html.erb within layouts/application
+  [1m[36mMaterial Load (0.7ms)[0m  [1m[34mSELECT "materials".* FROM "materials"[0m
+  Rendered shared/_error_messages.html.erb (0.6ms)
+  Rendered materials/_form.html.erb (6.0ms)
+  Rendered materials/index.html.erb within layouts/application (15.2ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 92ms (Views: 81.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/materials/32/blah" for 127.0.0.1 at 2018-02-26 21:43:23 -0500
+Processing by MaterialsController#blah as JSON
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMaterial Load (0.3ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+[active_model_serializers] Rendered MaterialSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 7ms (Views: 1.3ms | ActiveRecord: 0.7ms)
+
+
