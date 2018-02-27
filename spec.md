@@ -8,7 +8,8 @@ Specs:
     - houses/index.html.erb renders projects list for a page when "list projects" is clicked.
 - [x] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
     - projects has_many materials, house has_many projects with respect to serialization scheme.
-- [ ] Use your Rails API and a form to create a resource and render the response without a page refresh.
+- [x] Use your Rails API and a form to create a resource and render the response without a page refresh.
+    - materials/new uses form to create and render a new material, as many as you want sequentially, without refresh.
 - [ ] Translate JSON responses into js model objects.
 - [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
 
