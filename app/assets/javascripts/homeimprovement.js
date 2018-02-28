@@ -1,19 +1,22 @@
-// $(document).ready(function() {
-// });
-//
-// function parseMaterial(json) {
-//   debugger;
-//   // $.getJSON("/materials/" + id + "/blah", function(data) {
-//   //   // Replace text of body-id div
-//   //   debugger;
-//   //   $("#blah-" + id).html(data["name"]);
-//   // });
-//   let testMaterial = new Material(json);
-//   var blah = testMaterial.makeLink;
-//   debugger;
-//   // const stuff = JSON.parse(this.responseText)
-//   // document.getElementById("stuff".innerHTML = stuff)
-// }
+$(document).ready(function() {
+});
+
+function parseMaterial(json) {
+  debugger;
+  // $.getJSON("/materials/" + id + "/blah", function(data) {
+  //   // Replace text of body-id div
+  //   debugger;
+  //   $("#blah-" + id).html(data["name"]);
+  // });
+  let testMaterial = new Material(json);
+  var blah = testMaterial.makeLink;
+    Material.templateSource = $("#material-template").html();
+    Material.template = Handlebars.compile(Material.templateSource);
+
+  debugger;
+  // const stuff = JSON.parse(this.responseText)
+  // document.getElementById("stuff".innerHTML = stuff)
+}
 //
 // $(function(){
 //   Material.templateSource = $("#material-template").html();

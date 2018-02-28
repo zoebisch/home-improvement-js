@@ -17,8 +17,8 @@ $(function () {
     //var $form = $(this)
     var material = $.post('/materials', values);
       material.done(function(data) {
-
-        // parseMaterial(data)
+        debugger;
+        parseMaterial(data)
         var material = data;
         $("#materialName").append("<li id=material-" + materialID +">" + material["name"] + " - quantity on hand: " + material["quantity_on_hand"] + "</li>")
 
