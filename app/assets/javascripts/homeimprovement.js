@@ -15,11 +15,12 @@ function parseMaterial(id) {
   document.getElementById("stuff".innerHTML = stuff)
 }
 
-function Material(name, quantity_on_hand) {
-  this.name = name;
-  this.quantity_on_hand = quantity_on_hand;
+function Material(attributes) {
+  this.id = attributes.id
+  this.name = attributes.name;
+  this.quantity_on_hand = attributes.quantity_on_hand;
 }
 
 Material.prototype.makeLink = function(){
-  return this.name + " " + this.quantity_on_hand
+  return `${this.name} + " " + ${this.quantity_on_hand}`
 }

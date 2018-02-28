@@ -10,11 +10,12 @@
 <script type="text/javascript" charset="utf-8">
 
 $(function () {
-  $('.new_material').on("submit", function(event) {
+  $('form#new_material').on("submit", function(event) {
     event.preventDefault();
     var values = $(this).serialize();
     var materialID = this.id;
-
+    debugger;
+    var $form = $(this)
     var material = $.post('/materials', values);
       material.done(function(data) {
         var material = data;

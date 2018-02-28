@@ -33,7 +33,6 @@
           listMaterials += '<li class="js-materials" data-id="' + material["id"] + '">' + materialLink + material["status"] + '</li>';
         });
 
-        console.log(listMaterials);
         $('#project-' + projectID ).html(listMaterials);
       });
     });
