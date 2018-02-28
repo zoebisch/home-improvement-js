@@ -31561,3 +31561,152 @@ Processing by MaterialsController#create as */*
 Completed 201 Created in 11ms (Views: 1.0ms | ActiveRecord: 3.2ms)
 
 
+Started GET "/materials/new" for 127.0.0.1 at 2018-02-27 22:10:10 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MaterialsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.8ms)
+  Rendered materials/_form.html.erb (36.7ms)
+  Rendered materials/new.html.erb within layouts/application (42.1ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 676ms (Views: 608.1ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/materials" for 127.0.0.1 at 2018-02-27 22:10:16 -0500
+Processing by MaterialsController#create as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0v9/f6uWDGDLZWWnLiT3062A9mNYaGXLFyAPueGwNyvSywO2XglW5REJd95e5FdE9qKMkya0OhAc5o0i73d3hw==", "material"=>{"name"=>"bubsdds", "quantity_on_hand"=>"2"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMaterial Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" WHERE "materials"."name" = ? LIMIT ?[0m  [["name", "bubsdds"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "materials" ("name", "quantity_on_hand", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "bubsdds"], ["quantity_on_hand", 2], ["created_at", "2018-02-28 03:10:16.223272"], ["updated_at", "2018-02-28 03:10:16.223272"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered MaterialSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 201 Created in 49ms (Views: 34.0ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/materials/new" for 127.0.0.1 at 2018-02-27 22:11:01 -0500
+Processing by MaterialsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (1.3ms)
+  Rendered materials/_form.html.erb (15.5ms)
+  Rendered materials/new.html.erb within layouts/application (20.3ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 329ms (Views: 318.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/materials" for 127.0.0.1 at 2018-02-27 22:11:06 -0500
+Processing by MaterialsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+1K0DGnYbaIhNzG9/z1GuB2ZanPziCPl6AOlEqaGXXv7ZsjFnEc3J/tbI8SP/eYvRrsQg41UfD7jxSeJqEEd1w==", "material"=>{"name"=>"ssvsvs", "quantity_on_hand"=>"0"}, "commit"=>"Create Material"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMaterial Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" WHERE "materials"."name" = ? LIMIT ?[0m  [["name", "ssvsvs"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "ssvsvs"], ["created_at", "2018-02-28 03:11:06.605446"], ["updated_at", "2018-02-28 03:11:06.605446"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered MaterialSerializer with ActiveModelSerializers::Adapter::Attributes (0.6ms)
+Completed 201 Created in 19ms (Views: 1.9ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/materials" for 127.0.0.1 at 2018-02-27 22:11:38 -0500
+Processing by MaterialsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+1K0DGnYbaIhNzG9/z1GuB2ZanPziCPl6AOlEqaGXXv7ZsjFnEc3J/tbI8SP/eYvRrsQg41UfD7jxSeJqEEd1w==", "material"=>{"name"=>"sddsdsdsds", "quantity_on_hand"=>"0"}, "commit"=>"Create Material"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMaterial Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" WHERE "materials"."name" = ? LIMIT ?[0m  [["name", "sddsdsdsds"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "sddsdsdsds"], ["created_at", "2018-02-28 03:11:38.849789"], ["updated_at", "2018-02-28 03:11:38.849789"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered MaterialSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+Completed 201 Created in 12ms (Views: 0.9ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/materials" for 127.0.0.1 at 2018-02-27 22:11:42 -0500
+Processing by MaterialsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+1K0DGnYbaIhNzG9/z1GuB2ZanPziCPl6AOlEqaGXXv7ZsjFnEc3J/tbI8SP/eYvRrsQg41UfD7jxSeJqEEd1w==", "material"=>{"name"=>"sddsdsdsds", "quantity_on_hand"=>"0"}, "commit"=>"Create Material"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMaterial Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" WHERE "materials"."name" = ? LIMIT ?[0m  [["name", "sddsdsdsds"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering materials/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (1.2ms)
+  Rendered materials/_form.html.erb (20.0ms)
+  Rendered materials/new.html.erb within layouts/application (23.7ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 116ms (Views: 107.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/materials/new" for 127.0.0.1 at 2018-02-27 22:11:48 -0500
+Processing by MaterialsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (1.4ms)
+  Rendered materials/_form.html.erb (10.5ms)
+  Rendered materials/new.html.erb within layouts/application (16.1ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 119ms (Views: 110.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/materials" for 127.0.0.1 at 2018-02-27 22:11:53 -0500
+Processing by MaterialsController#create as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P9DY+kJ5lzjH9DFep6Lc8aJa9Fv5RYKYlzms2NHc2G4/5KQzt+bNvR2YIyfXYnxm+XiOq4eZ3UOc/y5D3xuYwg==", "material"=>{"name"=>"aaavvvvvv", "quantity_on_hand"=>"0"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMaterial Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" WHERE "materials"."name" = ? LIMIT ?[0m  [["name", "aaavvvvvv"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "aaavvvvvv"], ["created_at", "2018-02-28 03:11:53.159992"], ["updated_at", "2018-02-28 03:11:53.159992"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered MaterialSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 201 Created in 10ms (Views: 1.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/materials/new" for 127.0.0.1 at 2018-02-27 22:12:35 -0500
+Processing by MaterialsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (3.0ms)
+  Rendered materials/_form.html.erb (21.4ms)
+  Rendered materials/new.html.erb within layouts/application (32.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 239ms (Views: 231.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/materials" for 127.0.0.1 at 2018-02-27 22:12:39 -0500
+Processing by MaterialsController#create as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+FP8WmK3/cJ5RROgG3AUo7CKUGrT4C5yWJspyPSTORn4Z4CTlyinR6MpAdlrsLQ066gqmq08calTXatT+lR5tQ==", "material"=>{"name"=>"boobobob", "quantity_on_hand"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMaterial Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" WHERE "materials"."name" = ? LIMIT ?[0m  [["name", "boobobob"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "boobobob"], ["created_at", "2018-02-28 03:12:39.408099"], ["updated_at", "2018-02-28 03:12:39.408099"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered MaterialSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 201 Created in 10ms (Views: 1.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/materials/new" for 127.0.0.1 at 2018-02-27 22:12:49 -0500
+Processing by MaterialsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering materials/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.7ms)
+  Rendered materials/_form.html.erb (11.4ms)
+  Rendered materials/new.html.erb within layouts/application (16.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 229ms (Views: 220.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/materials" for 127.0.0.1 at 2018-02-27 22:12:53 -0500
+Processing by MaterialsController#create as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WpPN96PbMoeTNhww+iwVrgIgNNWt/9Etar7T2vokGN9ap7E+VkRoAklaDkmK7LU5WQJOJdMjjvZheFFB9ONYcw==", "material"=>{"name"=>"blublblb", "quantity_on_hand"=>"0"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMaterial Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "materials" WHERE "materials"."name" = ? LIMIT ?[0m  [["name", "blublblb"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "blublblb"], ["created_at", "2018-02-28 03:12:53.941340"], ["updated_at", "2018-02-28 03:12:53.941340"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered MaterialSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 201 Created in 9ms (Views: 1.1ms | ActiveRecord: 2.3ms)
+
+
