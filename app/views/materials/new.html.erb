@@ -10,14 +10,15 @@
 <script type="text/javascript" charset="utf-8">
 
 $(function () {
-  $('form#new_material').on("submit", function(event) {
+  $('.new_material').on("submit", function(event) {
     event.preventDefault();
     var values = $(this).serialize();
     var materialID = this.id;
-    debugger;
-    var $form = $(this)
+    //var $form = $(this)
     var material = $.post('/materials', values);
       material.done(function(data) {
+
+        // parseMaterial(data)
         var material = data;
         $("#materialName").append("<li id=material-" + materialID +">" + material["name"] + " - quantity on hand: " + material["quantity_on_hand"] + "</li>")
 
@@ -26,3 +27,13 @@ $(function () {
     });
   });
 </script>
+
+<!-- <script id="materialTemplate" type="text/x-handlebars-template">
+  <div class="entry">
+    <h4>{{name}}</h4>
+    <div class="body">
+      {{body}}
+    </div>
+  </div>
+
+</script> -->

@@ -48,7 +48,7 @@ gem 'bootstrap-sass', '3.3.7'
 #implement jquery
 gem 'jquery-rails'
 #use handlebars for templates
-# gem 'handlebars_assets'
+gem 'handlebars_assets'
 #Use Active Model Serializer
 gem 'active_model_serializers'
 #
