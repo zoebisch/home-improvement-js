@@ -19,7 +19,6 @@
   <script type="text/javascript" charset="utf-8">
     $(function() {
       $(".js-projects").on("click", function() {
-        debugger;
         var houseID = $(this).data("id");
         $.get("/houses/" + houseID + ".json", function(data) {
           var projects = data;

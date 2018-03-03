@@ -1,10 +1,5 @@
 class MaterialsController < ApplicationController
-
-  def blah
-    @material = Material.find(params[:id])
-    render :json => @material
-  end
-
+  
   def index
     @material = Material.new()
     @materials = Material.all

@@ -10,8 +10,8 @@ Specs:
     - projects has_many materials, house has_many projects with respect to serialization scheme.
 - [x] Use your Rails API and a form to create a resource and render the response without a page refresh.
     - materials/new uses form to create and render a new material, as many as you want sequentially, without refresh.
-- [ ] Translate JSON responses into js model objects.
-- [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
+- [x] Translate JSON responses into js model objects.
+- [x] At least one of the js model objects must have at least one method added by your code to the prototype.
 
 Confirm
 - [ ] You have a large number of small Git commits
