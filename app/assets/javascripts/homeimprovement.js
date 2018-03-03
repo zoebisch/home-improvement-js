@@ -3,11 +3,15 @@ $(document).ready(function() {
 
 function parseMaterial(json) {
   let testMaterial = new Material(json);
+  debugger;
   var newMaterial = testMaterial.renderLI();
   $("#new_material").prepend(newMaterial);
 }
 
 $(function () {
+  Handlebars.registerHelper('alert', function() {
+  alert("Material already exists!")
+});
   Material.templateSource = $("#material-template").html();
   Material.template = Handlebars.compile(Material.templateSource);
 })

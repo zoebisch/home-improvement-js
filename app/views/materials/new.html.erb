@@ -25,7 +25,11 @@ $(function () {
 
 <script id="material-template" type="text/x-handlebars-template">
   <div class="entry">
-    <h4>{{name}} : Quantity on Hand - {{quantity_on_hand}}</h4>
+      {{#if name}}
+      <h4>{{name}} : Quantity on Hand - {{quantity_on_hand}}</h4>
+      {{else}}
+        {{{alert}}}
+      {{/if}}
   </div>
 
 </script>
