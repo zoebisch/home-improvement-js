@@ -3,9 +3,8 @@ $(document).ready(function() {
 
 function parseMaterial(json) {
   let testMaterial = new Material(json);
-  var blah = testMaterial.renderLI();
-
-  debugger;
+  var newMaterial = testMaterial.renderLI();
+  $("#new_material").prepend(newMaterial);
 }
 
 $(function () {
@@ -20,6 +19,5 @@ function Material(attributes) {
 }
 
 Material.prototype.renderLI = function(){
-  debugger;
   return Material.template(this);
 }

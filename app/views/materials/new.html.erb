@@ -17,11 +17,7 @@ $(function () {
     //var $form = $(this)
     var material = $.post('/materials', values);
       material.done(function(data) {
-        debugger;
         parseMaterial(data)
-        var material = data;
-        $("#materialName").append("<li id=material-" + materialID +">" + material["name"] + " - quantity on hand: " + material["quantity_on_hand"] + "</li>")
-
       });
       return false; //Super Important! This returns the form submit button to original state by NOT submitting the form. (sounds strange...I know but it works)
     });
@@ -30,10 +26,7 @@ $(function () {
 
 <script id="material-template" type="text/x-handlebars-template">
   <div class="entry">
-    <h4>{{name}}</h4>
-    <div class="body">
-      {{body}}
-    </div>
+    <h4>{{name}} : Quantity on Hand - {{quantity_on_hand}}</h4>
   </div>
 
 </script>
