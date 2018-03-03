@@ -1,5 +1,6 @@
-  <center><%= image_tag("splash.jpg", alt: "Home Improvement") %></center>
-  <br></br>
+<center><%= image_tag("splash.jpg", alt: "Home Improvement") %></center>
+<br></br>
+
 <main id="main">
   <ul>
     <% House.all.each do |house| %>
@@ -14,10 +15,11 @@
   </ul>
 
   <p><%= link_to "Add A New Address", new_house_path %></p>
-  <button id="save">Save Game</button>
+
   <script type="text/javascript" charset="utf-8">
     $(function() {
       $(".js-projects").on("click", function() {
+        debugger;
         var houseID = $(this).data("id");
         $.get("/houses/" + houseID + ".json", function(data) {
           var projects = data;

@@ -3,27 +3,7 @@
 <ul>
   <% Material.all.each do |material| %>
     <p><%= link_to material.name, material_path(material)%> quantity on hand: <%= material.quantity_on_hand %></p>
-      <div id="blah-<%= material.id %>"></div>
-
-      <button class="test" data-id="<%= material.id %>">blah</button>
   <% end %>
 </ul>
 
-<div id="materialResult">
-  <h2 id="materialName">should be here</h2>
-  <p id="materialQuantityOnHand"></p>
-</div>
-
 <%= render 'form' %>
-
-
-<script type="text/javascript" charset="utf-8">
-
-$(function () {
-  $(".test").on('click', function() {
-    var id = $(this).data("id");
-    parseMaterial(id)
-    debugger;
-  });
-});
-</script>
