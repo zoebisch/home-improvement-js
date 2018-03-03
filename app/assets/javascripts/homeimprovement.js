@@ -9,9 +9,7 @@ function parseMaterial(json) {
   //   $("#blah-" + id).html(data["name"]);
   // });
   let testMaterial = new Material(json);
-  var blah = testMaterial.makeLink;
-    Material.templateSource = $("#material-template").html();
-    Material.template = Handlebars.compile(Material.templateSource);
+  var blah = testMaterial.renderLI();
 
   debugger;
   // const stuff = JSON.parse(this.responseText)
@@ -23,6 +21,14 @@ function parseMaterial(json) {
 //   Material.template = Handlebars.compile(Material.templateSource);
 // })
 //
+
+$(function () {
+  Material.templateSource = $("#material-template").html();
+  Material.template = Handlebars.compile(Material.templateSource);
+})
+
+
+
 function Material(attributes) {
   this.id = attributes.id
   this.name = attributes.name;
@@ -30,5 +36,6 @@ function Material(attributes) {
 }
 
 Material.prototype.renderLI = function(){
+  debugger;
   return Material.template(this);
 }
