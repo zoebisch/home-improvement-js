@@ -3,7 +3,6 @@ class MaterialsController < ApplicationController
   def index
     @material = Material.new()
     @materials = Material.all
-    # render :json => @materials
   end
 
   def show
