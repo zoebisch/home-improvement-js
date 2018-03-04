@@ -1,25 +1,16 @@
-<!-- <h3>Materials List</h3>
+<h3>Materials List</h3>
 
-<ul>
-  <% Material.all.each do |material| %>
-    <p><%= link_to material.name, material_path(material)%> quantity on hand: <%= material.quantity_on_hand %></p>
-  <% end %>
-</ul>
-
-<p><%= link_to "Add New Materials", new_material_path %></p> -->
 <div id="materials">
 </div>
+
 <%= link_to "Add New Materials", new_material_path %>
 
 <script type="text/javascript" charset="utf-8">
   $(function() {
-    // var nextId = parseInt($(".js-next").attr("data-id")) + 1;
 
     $.getJSON("/materials", function(data) {
       var materialList = "";
       data.forEach(function(material) {
-        console.log(material)
-        // materialList += '<li class="js-material" data-id="' + material["id"] + '">' + material["name"] + ' - Quantity On Hand: ' + material["quantity_on_hand"] + '</li>';
         materialList += '<li><a href=' + "/materials/" + material["id"] + '>' + material["name"] + " - Quantity On Hand " + '</a></li>'
       });
 
