@@ -3,6 +3,10 @@ class MaterialsController < ApplicationController
   def index
     @material = Material.new()
     @materials = Material.all
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @materials.to_json }
+    end
   end
 
   def show
