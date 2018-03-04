@@ -7,8 +7,17 @@
 
 <%= render 'form' %>
 
-<script type="text/javascript" charset="utf-8">
+<script id="material-template" type="text/x-handlebars-template">
+  <div class="entry">
+    {{#if name}}
+    <h4>{{name}} : Quantity on Hand - {{quantity_on_hand}}</h4>
+    {{else}}
+    {{{alert}}}
+    {{/if}}
+  </div>
+</script>
 
+<script type="text/javascript" charset="utf-8">
 $(function () {
   $('.new_material').on("submit", function(event) {
     event.preventDefault();
@@ -21,15 +30,4 @@ $(function () {
       return false; //Super Important! This returns the form submit button to original state by NOT submitting the form. (sounds strange...I know but it works)
     });
   });
-</script>
-
-<script id="material-template" type="text/x-handlebars-template">
-  <div class="entry">
-      {{#if name}}
-        <h4>{{name}} : Quantity on Hand - {{quantity_on_hand}}</h4>
-      {{else}}
-        {{{alert}}}
-      {{/if}}
-  </div>
-
 </script>
