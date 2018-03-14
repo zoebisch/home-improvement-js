@@ -5,6 +5,8 @@
 
 <%= link_to "Add New Materials", new_material_path %>
 
+<button id="filter">Filter Less Than 100</button>
+
 <script type="text/javascript" charset="utf-8">
   $(function() {
     $.getJSON("/materials", function(data) {
@@ -16,5 +18,17 @@
       $("#materials").html("")
       $("#materials").append(materialList);
     });
-  })
+
+    // $('#filter').on("click", function(){
+    //   $.getJSON("/materials", function(data) {
+    //     var materialList = "";
+    //     var filtered = data.filter((material) => material.quantity_on_hand >= 100);
+    //     filtered.forEach(function(material) {
+    //       materialList += '<li><a href=' + "/materials/" + material["id"] + '>' + material["name"] + " - Quantity On Hand " + material["quantity_on_hand"] + '</a></li>'
+    //     });
+    //     $("#materials").html("")
+    //     $("#materials").append(materialList);
+    //   })
+    // });
+  });
 </script>
