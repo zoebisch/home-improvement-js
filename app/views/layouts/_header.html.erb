@@ -4,7 +4,7 @@
       <h2>Home Improvement</h2>
       <% if !!current_user %>
         <%= link_to("Home", houses_path) %> |
-        <%= link_to "Materials on hand", materials_path %> |
+        <%= link_to "Materials on hand", materials_path, :id => "materials_list"%> |
         <%= link_to("Insufficient quantity", insufficient_quantity_path )%>
       <% end %>
     </ul>
