@@ -4,29 +4,37 @@ $(function () {
     alert("material already exists")
   });
 
-  $.getJSON("/materials", function(data) {
+  fetchMaterials(false);
+
+  // $('#materials_list').on("click", function() {
+  //   debugger;
+  //   fetchMaterials(false);
+  // });
+
+  $('#filter').on("click", function(){
+    var materials = fetchMaterials(true);
+  });
+
+})
+
+function fetchMaterials(isFiltered) {
+  var filt = isFiltered
+  $.getJSON( "/materials", function(data) {
     var materialList = "";
-    data.forEach(function(material) {
-      materialList += '<li><a href=' + "/materials/" + material["id"] + '>' + material["name"] + " - Quantity On Hand " + material["quantity_on_hand"] + '</a></li>'
+    var filtered = data
+    if (filt) {
+      var filtered = data.filter((material) => material.quantity_on_hand >= 100);
+    }
+
+    filtered.forEach(function(material) {
+      materialList += '<li><a href=' + "/materials/" + material["id"] + '>' + material["name"] + " - Quantity On Hand: " + material["quantity_on_hand"] + '</a></li>'
     });
 
     $("#materials").html("")
     $("#materials").append(materialList);
-  });
+  })
+}
 
-  $('#filter').on("click", function(){
-    $.getJSON("/materials", function(data) {
-      var materialList = "";
-      var filtered = data.filter((material) => material.quantity_on_hand >= 100);
-      filtered.forEach(function(material) {
-        materialList += '<li><a href=' + "/materials/" + material["id"] + '>' + material["name"] + " - Quantity On Hand " + material["quantity_on_hand"] + '</a></li>'
-      });
-      $("#materials").html("")
-      $("#materials").append(materialList);
-    })
-  });
-
-})
 
 function parseMaterial(json) {
   Material.templateSource = $("#material-template").html();
