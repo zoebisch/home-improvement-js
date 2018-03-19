@@ -4,18 +4,16 @@ $(function () {
     alert("material already exists")
   });
 
-  fetchMaterials(false);
-
-  // $('#materials_list').on("click", function() {
-  //   debugger;
-  //   fetchMaterials(false);
-  // });
-
   $('#filter').on("click", function(){
     var materials = fetchMaterials(true);
   });
 
 })
+
+$(document).on('turbolinks:load', function() {
+  fetchMaterials(false);
+})
+
 
 function fetchMaterials(isFiltered) {
   var filt = isFiltered
